@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ESNext"
-    ],
+    "lib": ["ES2015", "ES6", "ESNext", "DOM"],
+    "baseUrl": ".",
     "paths": {
-      "assets/*": ["./src/assets/*"],
-      "components/*": ["./src/components/*"],
-      "containers/*": ["./src/containers/*"],
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "containers/*": ["src/containers/*"]
     },
     "allowJs": true,
+    "sourceMap": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -24,12 +22,10 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "outDir": "build",
+    "charset": "utf7"
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "./node_modules/**/*"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules/**/*"]
 }
