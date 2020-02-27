@@ -6,6 +6,11 @@
       "dom.iterable",
       "ESNext"
     ],
+    "paths": {
+      "assets/*": ["./src/assets/*"],
+      "components/*": ["./src/components/*"],
+      "containers/*": ["./src/containers/*"],
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,6 +27,9 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules/**/*"
   ]
 }
