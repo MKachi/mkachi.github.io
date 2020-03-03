@@ -5,7 +5,10 @@
   "author": "MKachi <mkachi@naver.com>",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./scripts/build.js",
+    "develop": "webpack-dev-server --config ./scripts/webpack/webpack.dev.js",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix"
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "babel-loader": "^8.0.6",
+    "chalk": "^3.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
