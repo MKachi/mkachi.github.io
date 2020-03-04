@@ -7,7 +7,6 @@ const {
 } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const eslintRule = () => ({
   test: /\.(js|jsx|ts|tsx)$/,
@@ -34,9 +33,6 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader']
-    }, {
       test: /\.(js|jsx|ts|tsx)$/,
       exclude: /(node_modules)/,
       use: {
@@ -45,6 +41,18 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
         }
       }
+    }, {
+      test: /\.module.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: true,
+          }
+        }
+      ]
     }, {
       test: /\.html$/,
       use: [{
@@ -81,7 +89,7 @@ module.exports = {
         name: `${config.out}/assets/audios/[hash].[ext]`,
         limit: 10000
       }
-    }, ...(config.useLint ? [eslintRule()] : []), ]
+    }, ...(config.useLint ? [eslintRule()] : [])]
   },
   plugins: [
     new FriendlyErrorsWebpackPlugin(),
@@ -92,9 +100,6 @@ module.exports = {
       from: `${config.src}/assets`,
       to: `${config.out}/assets`,
       flatten: true
-    }]),
-    new MiniCssExtractPlugin({
-      filename: './style.css'
-    })
+    }])
   ]
 }
