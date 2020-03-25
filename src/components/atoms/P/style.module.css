@@ -1,0 +1,48 @@
+.default {
+  margin: 0;
+}
+
+.extra-large {
+  font-size: 2.5em;
+}
+
+.large {
+  font-size: 2em;
+}
+
+.medium {
+  font-size: 1.2em;
+}
+
+.small {
+  font-size: 1em;
+}
+
+.extra-small {
+  color: #8d8d8d;
+  font-size: 0.7em;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
