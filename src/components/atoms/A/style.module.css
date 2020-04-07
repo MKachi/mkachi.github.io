@@ -1,0 +1,8 @@
+.default {
+  color: #2385d6;
+  text-decoration: none;
+}
+
+.default:hover {
+  text-decoration: underline;
+}
