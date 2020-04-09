@@ -1,0 +1,7 @@
+.default {
+  display: flex;
+  flex-direction: column;
+  width: 770px;
+  min-height: 100vh;
+  margin: 0px auto;
+}
