@@ -5,22 +5,28 @@
 }
 
 .description {
-  margin: auto 0px;
+  margin: auto 0px auto 5px;
 }
 
 .icons {
   font-size: 25px;
 }
 
-.icon-mail {
-  margin: 5px 5px 0px 0px;
-}
-
 .icon {
+  color: #8a8a8a;
   margin: 5px 10px 0px 0px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-* {
-  font-family: 'Apple SD Gothic Neo', NanumGothic, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.rss:hover {
+  color: #ff9900;
+}
+
+.facebook:hover {
+  color: #4359ac;
+}
+
+.github:hover {
+  color: #000000;
 }
