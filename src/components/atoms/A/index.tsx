@@ -26,7 +26,7 @@ const A: React.FC<IProps> = ({ className, to, children, type = Type.Url }) => {
     )
   } else {
     return (
-      <a className={classProps} href={to}>
+      <a className={classProps} href={to} target={'_blank'}>
         {children}
       </a>
     )
