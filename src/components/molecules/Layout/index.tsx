@@ -6,14 +6,14 @@ export enum Direction {
   Row = 'row',
   Column = 'column',
   RowReverse = 'row-reverse',
-  ColumnReverse = 'column-reverse',
+  ColumnReverse = 'column-reverse'
 }
 
 export enum VerticalAlign {
   Top = 'v-top',
   Center = 'v-center',
   Bottom = 'v-bottom',
-  Stretch = 'v-stretch',
+  Stretch = 'v-stretch'
 }
 
 export enum HorizontalAlign {
@@ -21,18 +21,18 @@ export enum HorizontalAlign {
   Center = 'h-center',
   Right = 'h-right',
   SpaceAround = 'h-space-around',
-  SpaceBetween = 'h-space-between',
+  SpaceBetween = 'h-space-between'
 }
 
 export enum Wrap {
   Wrap = 'wrap',
   NoWrap = 'no-wrap',
-  Reverse = 'wrap-reverse',
+  Reverse = 'wrap-reverse'
 }
 
 export enum Overflow {
   Auto = 'auto',
-  Hidden = 'hidden',
+  Hidden = 'hidden'
 }
 
 interface IProps {
@@ -45,15 +45,7 @@ interface IProps {
   overflow?: Overflow
 }
 
-const Layout: React.FC<IProps> = ({
-  className,
-  children,
-  direction = Direction.Row,
-  verticalAlign,
-  horizontalAlign,
-  wrap,
-  overflow,
-}) => {
+const Layout: React.FC<IProps> = ({ className, children, direction = Direction.Row, verticalAlign, horizontalAlign, wrap, overflow }) => {
   const classProps = classNames(
     className,
     styles.default,
