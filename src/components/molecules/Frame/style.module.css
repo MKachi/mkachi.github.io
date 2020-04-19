@@ -1,7 +1,15 @@
 .default {
   display: flex;
   flex-direction: column;
-  width: 770px;
+  width: 100vw;
+}
+
+.content {
   min-height: 100vh;
+}
+
+.container {
+  flex-grow: 1;
+  max-width: 770px;
   margin: 0px auto;
 }
