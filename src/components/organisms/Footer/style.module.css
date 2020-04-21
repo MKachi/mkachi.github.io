@@ -1,0 +1,13 @@
+.default {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  color: #ffffff;
+  background-color: #3f3f3f;
+  align-items: center;
+  justify-content: center;
+}
+
+.symbol {
+  margin: 0px 5px;
+}
