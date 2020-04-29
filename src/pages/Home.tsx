@@ -5,7 +5,7 @@ import P from '../components/atoms/P'
 import Profile from '../components/organisms/Profile'
 import Layout, { Direction, HorizontalAlign } from '../components/molecules/Layout/index'
 import Footer from '../components/organisms/Footer'
-import Pagination from '../components/organisms/Pagination2'
+import Pagination from '../components/organisms/Pagination'
 
 const Home = () => {
   const [ pageIndex, setPageIndex ] = useState(1)
@@ -32,7 +32,7 @@ const Home = () => {
         />
         <Pagination
           pageIndex={pageIndex}
-          pageCount={8}
+          pageCount={20}
           onChangeIndex={(index: number) => {
             setPageIndex(index)
           }}
