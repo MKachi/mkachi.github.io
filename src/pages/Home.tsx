@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Frame, { FrameType } from '../components/molecules/Frame'
 import Menu from '../components/molecules/Menu'
 import P from '../components/atoms/P'
 import Profile from '../components/organisms/Profile'
 import Layout, { Direction, HorizontalAlign } from '../components/molecules/Layout/index'
 import Footer from '../components/organisms/Footer'
+import Pagination from '../components/organisms/Pagination2'
 
 const Home = () => {
+  const [ pageIndex, setPageIndex ] = useState(1)
   return (
     <Frame type={FrameType.Content}>
       <Frame type={FrameType.Container}>
@@ -27,6 +29,13 @@ const Home = () => {
             { name: 'test1', component: <P text={'text1'} /> },
             { name: 'test2', component: <P text={'text2'} /> },
           ]}
+        />
+        <Pagination
+          pageIndex={pageIndex}
+          pageCount={8}
+          onChangeIndex={(index: number) => {
+            setPageIndex(index)
+          }}
         />
       </Frame>
       <Footer />
