@@ -80,10 +80,11 @@ const loadPosts = async (path) => {
   const posts = await getFiles(path)
   for (let i = 0; i < posts.length; ++i) {
     const post = await parsePost(posts[i])
-    const path = post.date.replace(/-/gi, '/') + '/' + post.title.replace(/ /gi, '-')
+    const path = '/' + post.date.replace(/-/gi, '/') + '/' + post.title.replace(/ /gi, '-')
     const content = md.render(post.content)
     result.push({
       path: path,
+      title: post.title,
       date: post.date,
       time: post.time,
       tags: post.tags,
