@@ -1,10 +1,14 @@
 'use strict'
 
 const config = require('../config')
+const createDB = require('../createDB')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+
 
 const eslintRule = () => ({
   test: /\.(js|jsx|ts|tsx)$/,
@@ -16,6 +20,7 @@ const eslintRule = () => ({
     emitWarning: !config.showLintError
   }
 })
+createDB()
 
 module.exports = {
   entry: {
@@ -30,8 +35,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /(node_modules)/,
         use: {
@@ -40,8 +44,7 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
           }
         }
-      },
-      {
+      }, {
         test: /\.css$/,
         use: [
           'style-loader',
@@ -53,43 +56,36 @@ module.exports = {
             }
           }
         ]
-      },
-      {
+      }, {
         test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              minimize: true
-            }
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: true
           }
-        ]
-      },
-      {
+        }]
+      }, {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         loader: 'url-loader',
         options: {
           name: `${config.out}/assets/images/[hash].[ext]`,
           limit: 10000
         }
-      },
-      {
+      }, {
         test: /\.(woff|woff2|ttf|eot|otf)$/,
         loader: 'url-loader',
         options: {
           name: `${config.out}/assets/fonts/[hash].[ext]`,
           limit: 10000
         }
-      },
-      {
+      }, {
         test: /\.(mp4|webm)$/,
         loader: 'url-loader',
         options: {
           name: `${config.out}/assets/videos/[hash].[ext]`,
           limit: 10000
         }
-      },
-      {
+      }, {
         test: /\.(ogg|mp3|wav|flac|aac)$/,
         loader: 'url-loader',
         options: {
@@ -105,12 +101,10 @@ module.exports = {
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: ['build']
     }),
-    new CopyWebpackPlugin([
-      {
-        from: `${config.src}/assets`,
-        to: `${config.out}/assets`,
-        flatten: true
-      }
-    ])
+    new CopyWebpackPlugin([{
+      from: `${config.src}/assets`,
+      to: `${config.out}/assets`,
+      flatten: true
+    }])
   ]
 }
