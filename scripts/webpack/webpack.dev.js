@@ -9,6 +9,24 @@ const {
 } = require('webpack-bundle-analyzer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const getPlugins = () => {
+  const plugins = []
+  const analyzer = config.useAnalyzer ? new BundleAnalyzerPlugin({
+    analyzerHost: config.analyzer.host,
+    analyzerPort: config.analyzer.port
+  }) : null
+
+  if (analyzer != null) {
+    plugins.push(analyzer)
+  }
+
+  plugins.push(new HtmlWebpackPlugin({
+    template: `${config.src}/index.html`,
+    filename: './index.html'
+  }))
+  return plugins
+}
+
 module.exports = merge(base, {
   mode: 'development',
   devtool: 'source-map',
@@ -17,14 +35,5 @@ module.exports = merge(base, {
     port: config.devServer.port,
     open: true
   },
-  plugins: [
-    new BundleAnalyzerPlugin({
-      analyzerHost: config.analyzer.host,
-      analyzerPort: config.analyzer.port
-    }),
-    new HtmlWebpackPlugin({
-      template: `${config.src}/index.html`,
-      filename: './index.html'
-    }),
-  ]
+  plugins: getPlugins()
 })
