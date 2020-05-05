@@ -5,7 +5,7 @@ import styles from './style.module.css'
 import { FaGithub, FaFacebook, FaRss } from 'react-icons/fa'
 import Layout, { Direction } from '../../molecules/Layout'
 import Image, { Type } from '../../atoms/Image'
-import P, { Size } from '../../atoms/P'
+import P from '../../atoms/P'
 import A, { Type as LinkType } from '../../atoms/A/index'
 
 interface IProps {
@@ -29,15 +29,7 @@ const createSocialLink = (icon: JSX.Element, link: string) => {
   )
 }
 
-const Profile: React.FC<IProps> = ({
-  className,
-  profile,
-  username,
-  description,
-  github = '',
-  facebook = '',
-  rss = '',
-}) => {
+const Profile: React.FC<IProps> = ({ className, profile, username, description, github = '', facebook = '', rss = '' }) => {
   const githubIcon = classNames(styles.icon, styles.github)
   const facebookIcon = classNames(styles.icon, styles.facebook)
   const rssIcon = classNames(styles.icon, styles.rss)
@@ -45,8 +37,8 @@ const Profile: React.FC<IProps> = ({
     <Layout className={className} direction={Direction.Row}>
       <Image className={styles.profile} type={Type.Background} src={profile} />
       <div className={styles.description}>
-        <P size={Size.Medium} text={username} />
-        <P size={Size.Small} text={description} />
+        <P text={username} />
+        <P text={description} />
         <div className={styles.icons}>
           {createSocialLink(<FaGithub className={githubIcon} />, github)}
           {createSocialLink(<FaFacebook className={facebookIcon} />, facebook)}
