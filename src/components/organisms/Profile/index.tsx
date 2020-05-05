@@ -6,7 +6,7 @@ import { FaGithub, FaFacebook, FaRss } from 'react-icons/fa'
 import Layout, { Direction } from '../../molecules/Layout'
 import Image, { Type } from '../../atoms/Image'
 import P from '../../atoms/P'
-import A, { Type as LinkType } from '../../atoms/A/index'
+import A, { LinkType } from '../../atoms/A/index'
 
 interface IProps {
   className?: string
