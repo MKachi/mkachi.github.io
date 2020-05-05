@@ -3,7 +3,7 @@
   background-color: transparent;
   flex-direction: column;
   border-bottom: 1px solid #eeeeee;
-  padding: 20px 16px;
+  padding: 10px 16px 16px 16px;
   transition: all 0.3s ease;
 }
 
