@@ -1,3 +1,9 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+* {
+  font-family: 'Spoqa Han Sans', 'Apple SD Gothic Neo', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
 html,
 body {
   margin: 0;
