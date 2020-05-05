@@ -14,7 +14,9 @@ interface IProps {
 
 const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount }) => {
   const { postList } = useDB()
-  const posts = postList.slice(pageIndex - 1, pageIndex + pageIndex * showPostCount - 1)
+  const beginIndex = (pageIndex - 1) * showPostCount
+  const endIndex = pageIndex * showPostCount
+  const posts = postList.slice(beginIndex, endIndex)
   return (
     <Layout direction={Direction.Column}>
       {posts.map(value => {

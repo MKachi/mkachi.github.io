@@ -22,10 +22,9 @@ const Home = () => {
             rss={'https://www.facebook.com/mkachi'}
           />
         </Layout>
-        <PostList pageIndex={1} showPostCount={5} />
         <Menu
           items={[
-            { name: 'test1', component: <P text={'text1'} /> },
+            { name: 'test1', component: <PostList pageIndex={1} showPostCount={5} /> },
             { name: 'test2', component: <P text={'text2'} /> }
           ]}
         />
