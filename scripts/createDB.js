@@ -32,8 +32,9 @@ const getFiles = async (searchPath) => {
 const parsePost = async (filePath) => {
   const result = {
     date: '',
-    tags: null,
+    time: '',
     title: '',
+    tags: null,
     content: ''
   }
   const data = await readFile(filePath, 'utf-8')
@@ -86,6 +87,7 @@ const loadPosts = async (postPath) => {
     const content = md.render(post.content)
     posts[key] = {
       date: post.date,
+      time: post.time,
       title: post.title,
       tags: post.tags,
       content: content
@@ -93,13 +95,14 @@ const loadPosts = async (postPath) => {
     list.push({
       key: key,
       date: post.date,
+      time: post.time,
       title: post.title,
       tags: post.tags
     })
   }
   list.sort((a, b) => {
-    const dateA = new Date(a.date).getTime()
-    const dateB = new Date(b.date).getTime()
+    const dateA = new Date(`${a.date} ${a.time}`).getTime()
+    const dateB = new Date(`${b.date} ${b.time}`).getTime()
     return dateA < dateB ? 1 : -1
   })
   return {
