@@ -8,7 +8,6 @@ import Footer from '../components/organisms/Footer'
 import Pagination from '../components/organisms/Pagination'
 
 const Home = () => {
-  const [ pageIndex, setPageIndex ] = useState(1)
   return (
     <Frame type={FrameType.Content}>
       <Frame type={FrameType.Container}>
@@ -29,13 +28,6 @@ const Home = () => {
             { name: 'test1', component: <P text={'text1'} /> },
             { name: 'test2', component: <P text={'text2'} /> },
           ]}
-        />
-        <Pagination
-          pageIndex={pageIndex}
-          pageCount={20}
-          onChangeIndex={(index: number) => {
-            setPageIndex(index)
-          }}
         />
       </Frame>
       <Footer />

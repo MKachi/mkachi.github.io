@@ -1,9 +1,10 @@
-'use struct'
-const fs = require('fs')
-const util = require('util')
-const markdown = require('markdown-it')
+'use strict'
 
 const config = require('./config')
+
+const markdown = require('markdown-it')
+const fs = require('fs')
+const util = require('util')
 
 const readDir = util.promisify(fs.readdir)
 const readFile = util.promisify(fs.readFile)
@@ -31,7 +32,6 @@ const getFiles = async (searchPath) => {
 const parsePost = async (filePath) => {
   const result = {
     date: '',
-    time: '',
     tags: null,
     title: '',
     content: ''
@@ -70,34 +70,48 @@ const parsePost = async (filePath) => {
   return result
 }
 
-const loadPosts = async (path) => {
-  const result = []
+const loadPosts = async (postPath) => {
+  const list = []
+  const posts = {}
+
   const md = markdown({
     html: true,
     linkify: true,
     typographer: true
   })
-  const posts = await getFiles(path)
-  for (let i = 0; i < posts.length; ++i) {
-    const post = await parsePost(posts[i])
-    const path = '/' + post.date.replace(/-/gi, '/') + '/' + post.title.replace(/ /gi, '-')
+  const markdowns = await getFiles(postPath)
+  for (let i = 0; i < markdowns.length; ++i) {
+    const post = await parsePost(markdowns[i])
+    const key = `${post.date}-${post.title.replace(/ /gi, '-')}`
     const content = md.render(post.content)
-    result.push({
-      path: path,
-      title: post.title,
+    posts[key] = {
       date: post.date,
-      time: post.time,
+      title: post.title,
       tags: post.tags,
       content: content
+    }
+    list.push({
+      key: key,
+      date: post.date,
+      title: post.title,
+      tags: post.tags
     })
   }
-  return result
+  list.sort((a, b) => {
+    const dateA = new Date(a.date).getTime()
+    const dateB = new Date(b.date).getTime()
+    return dateA < dateB ? 1 : -1
+  })
+  return {
+    list,
+    posts
+  }
 }
 
 module.exports = async () => {
-  const posts = await loadPosts(config.posts)
+  const postTable = await loadPosts(config.posts)
   const json = {
-    posts: posts
+    postTable: postTable
   }
   await writeFile(config.src + '/database.json', JSON.stringify(json))
 }

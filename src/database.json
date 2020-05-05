@@ -1,1 +1,29 @@
-{"posts":[{"path":"/2020/05/03/test","title":"test","date":"2020-05-03","time":"","tags":["tag1","tag2","tag3"],"content":"<p>갸아아아아아아악</p>\n"}]}
+{
+  "postTable": {
+    "list": [{
+      "key": "2020-05-05-test2",
+      "date": "2020-05-05",
+      "title": "test2",
+      "tags": ["tag1", "tag2", "tag3"]
+    }, {
+      "key": "2020-05-03-test",
+      "date": "2020-05-03",
+      "title": "test",
+      "tags": ["tag1", "tag2", "tag3"]
+    }],
+    "posts": {
+      "2020-05-03-test": {
+        "date": "2020-05-03",
+        "title": "test",
+        "tags": ["tag1", "tag2", "tag3"],
+        "content": "<p>갸아아아아아아악</p>\n"
+      },
+      "2020-05-05-test2": {
+        "date": "2020-05-05",
+        "title": "test2",
+        "tags": ["tag1", "tag2", "tag3"],
+        "content": "<p>갸아아아아아아악2</p>\n"
+      }
+    }
+  }
+}

@@ -8,7 +8,8 @@
     "build": "node ./scripts/build.js",
     "develop": "webpack-dev-server --config ./scripts/webpack/webpack.dev.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix"
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix",
+    "generate-db": "node ./scripts/generateDB.js"
   },
   "repository": {
     "type": "git",

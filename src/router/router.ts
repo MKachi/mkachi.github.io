@@ -1,14 +1,14 @@
 import Home from '../pages/Home'
-import Posts from './routePosts'
+import Post from '../pages/Post'
 
 const Router = [
   {
     path: '/',
-    component: Home
+    component: Home,
   },
-  ...Posts()
+  {
+    path: '/post/:postKey/',
+    component: Post,
+  },
 ]
-
-console.log(Router)
-
 export default Router
