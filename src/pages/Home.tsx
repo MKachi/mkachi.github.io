@@ -24,7 +24,7 @@ const Home = () => {
         </Layout>
         <Menu
           items={[
-            { name: 'test1', component: <PostList pageIndex={1} showPostCount={5} /> },
+            { name: 'test1', component: <PostList pageIndex={1} showPostCount={8} /> },
             { name: 'test2', component: <P text={'text2'} /> }
           ]}
         />
