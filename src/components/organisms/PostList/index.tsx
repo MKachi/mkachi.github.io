@@ -7,22 +7,23 @@ import Layout, { Direction } from '../../molecules/Layout'
 import Card from '../../molecules/Card'
 import A, { LinkType } from '../../atoms/A'
 import P from '../../atoms/P'
+import { IPost } from '../../../models/post'
 
 interface IProps {
   className?: string
   pageIndex: number
   showPostCount: number
+  posts: IPost[]
 }
 
-const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount }) => {
-  const { postList } = useDB()
+const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount, posts }) => {
   const beginIndex = (pageIndex - 1) * showPostCount
   const endIndex = pageIndex * showPostCount
-  const posts = postList.slice(beginIndex, endIndex)
+  const rangePosts = posts.slice(beginIndex, endIndex)
 
   return (
     <Layout className={className} direction={Direction.Column}>
-      {posts.map(post => {
+      {rangePosts.map((post) => {
         return (
           <Card>
             <Layout direction={Direction.Column}>
@@ -31,9 +32,7 @@ const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount }) => 
                 <P className={styles.title} text={post.title} />
               </A>
               <Layout className={styles['tag-list']} direction={Direction.Row}>
-                {post.tags.map(tag => (
-                  <span className={styles.tag}>{`#${tag}`}</span>
-                ))}
+                {post.tags.map((tag) => <span className={styles.tag}>{`#${tag}`}</span>)}
               </Layout>
             </Layout>
           </Card>

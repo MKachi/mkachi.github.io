@@ -2,17 +2,17 @@ import React from 'react'
 import classNames from 'classnames'
 import styles from './styles.module.css'
 
-import { IPost } from '../../../models/post'
+import { IPost, IPostContent } from '../../../models/post'
 
 interface IProps {
   className?: string
-  post: IPost
+  content: IPostContent
 }
 
-const PostTemplate: React.FC<IProps> = ({ className, post }) => {
+const PostTemplate: React.FC<IProps> = ({ className, content }) => {
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div dangerouslySetInnerHTML={{ __html: content.content }} />
     </div>
   )
 }

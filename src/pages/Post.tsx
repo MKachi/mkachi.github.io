@@ -4,19 +4,23 @@ import Footer from '../components/organisms/Footer'
 import PostTemplate from '../components/templates/PostTemplate'
 import Helmet from 'react-helmet'
 import useDB from '../hooks/useDB'
+import { IPost, IPostContent } from '../models/post'
 
 const Post = ({ match }) => {
-  const { posts } = useDB()
+  const { posts, contents } = useDB()
   const key = match.params.postKey
-  const post = posts[key]
+  const content: IPostContent = contents[key]
+  const info: IPost = posts[content.index]
+  console.log(info)
+  console.log(content)
 
   return (
     <Frame type={FrameType.Content}>
       <Helmet>
-        <title>{post.title}</title>
+        <title>{info.title}</title>
       </Helmet>
       <Frame type={FrameType.Container}>
-        <PostTemplate post={post} />
+        <PostTemplate content={content} />
       </Frame>
       <Footer />
     </Frame>

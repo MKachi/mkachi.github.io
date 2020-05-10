@@ -35,14 +35,13 @@ const parsePost = async (filePath) => {
     time: '',
     title: '',
     tags: null,
-    content: ''
+    content: '',
   }
   const data = await readFile(filePath, 'utf-8')
   const lines = data.split('\n')
   let reader = ''
   let content = false
   for (let i = 1; i < lines.length; ++i) {
-
     if (lines[i] === '---') {
       content = true
       continue
@@ -70,51 +69,68 @@ const parsePost = async (filePath) => {
   result.content = reader
   return result
 }
-
 const loadPosts = async (postPath) => {
   const list = []
-  const posts = {}
+  const contents = {}
 
   const md = markdown({
     html: true,
     linkify: true,
-    typographer: true
+    typographer: true,
   })
   const markdowns = await getFiles(postPath)
   for (let i = 0; i < markdowns.length; ++i) {
     const post = await parsePost(markdowns[i])
     const key = `${post.date}-${post.title.replace(/ /gi, '-')}`
     const content = md.render(post.content)
-    posts[key] = {
+    list.push({
+      key,
       date: post.date,
       time: post.time,
       title: post.title,
       tags: post.tags,
-      content: content
-    }
-    list.push({
-      key: key,
-      date: post.date,
-      time: post.time,
-      title: post.title,
-      tags: post.tags
     })
+    contents[key] = {
+      index: i,
+      content
+    }
   }
   list.sort((a, b) => {
     const dateA = new Date(`${a.date} ${a.time}`).getTime()
     const dateB = new Date(`${b.date} ${b.time}`).getTime()
-    return dateA < dateB ? 1 : -1
+
+    if (dateA < dateB) {
+      const keyA = a.key
+      const keyB = b.key;
+      [contents[keyA].index, contents[keyB].index] = [contents[keyB].index, contents[keyA].index]
+
+      return 1
+    } else if (dateA > dateB) {
+      const keyA = a.key
+      const keyB = b.key;
+      [contents[keyA].index, contents[keyB].index] = [contents[keyB].index, contents[keyA].index]
+      return -1
+    }
+    return 0
   })
+
+  for (let i = 0; i < list.length; ++i) {
+    contents[list[i].key].index = i
+    console.log('-----------------------')
+    console.log(list[i])
+    console.log(contents[list[i].key])
+  }
+
   return {
     list,
-    posts
+    contents,
   }
 }
 
 module.exports = async () => {
-  const postTable = await loadPosts(config.posts)
+  const post = await loadPosts(config.posts)
   const json = {
-    postTable: postTable
+    post,
   }
   await writeFile(config.src + '/database.json', JSON.stringify(json))
 }
