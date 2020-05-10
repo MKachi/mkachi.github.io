@@ -98,27 +98,17 @@ const loadPosts = async (postPath) => {
   list.sort((a, b) => {
     const dateA = new Date(`${a.date} ${a.time}`).getTime()
     const dateB = new Date(`${b.date} ${b.time}`).getTime()
-
     if (dateA < dateB) {
-      const keyA = a.key
-      const keyB = b.key;
-      [contents[keyA].index, contents[keyB].index] = [contents[keyB].index, contents[keyA].index]
-
       return 1
     } else if (dateA > dateB) {
-      const keyA = a.key
-      const keyB = b.key;
-      [contents[keyA].index, contents[keyB].index] = [contents[keyB].index, contents[keyA].index]
       return -1
     }
     return 0
   })
 
+  // indexing
   for (let i = 0; i < list.length; ++i) {
     contents[list[i].key].index = i
-    console.log('-----------------------')
-    console.log(list[i])
-    console.log(contents[list[i].key])
   }
 
   return {
@@ -127,10 +117,26 @@ const loadPosts = async (postPath) => {
   }
 }
 
+const parseTags = async (list) => {
+  const result = {}
+  for (let i = 0; i < list.length; ++i) {
+    const tags = list[i].tags
+    for (let j = 0; j < tags.length; ++j) {
+      if (result[tags[j]] === undefined || result[tags[j]] === null) {
+        result[tags[j]] = []
+      }
+      result[tags[j]].push(i)
+    }
+  }
+  return result
+}
+
 module.exports = async () => {
   const post = await loadPosts(config.posts)
+  const tags = await parseTags(post.list)
   const json = {
     post,
+    tags
   }
   await writeFile(config.src + '/database.json', JSON.stringify(json))
 }
