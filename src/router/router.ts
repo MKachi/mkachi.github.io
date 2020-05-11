@@ -4,11 +4,11 @@ import Post from '../pages/Post'
 const Router = [
   {
     path: '/',
-    component: Home,
+    component: Home
   },
   {
     path: '/post/:postKey/',
-    component: Post,
-  },
+    component: Post
+  }
 ]
 export default Router

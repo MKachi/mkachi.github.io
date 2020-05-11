@@ -1,14 +1,14 @@
 {
   "version": "0.2.0",
   "configurations": [{
-    "name": "Firefox",
+    "name": "Firefox", // firefox -start-debugger-server 6000 -no-remote
     "type": "firefox",
     "request": "attach",
     "port": 6000,
     "url": "http://localhost:9000",
     "webRoot": "${workspaceFolder}"
   }, {
-    "name": "Chrome",
+    "name": "Chrome", // chrome --remote-debugging-port=9222
     "type": "chrome",
     "request": "attach",
     "port": 9222,

@@ -16,19 +16,3 @@
 .tag-list {
   margin-top: 5px;
 }
-
-.tag {
-  font-size: 0.8em;
-  margin-right: 2px;
-  padding: 0px 5px;
-  color: #47a4fc;
-  cursor: pointer;
-  border: 1px solid #47a4fc;
-  transition: all 0.3s ease;
-}
-
-.tag:hover {
-  color: #001aff;
-  border: 1px solid #001aff;
-  transition: all 0.3s ease;
-}

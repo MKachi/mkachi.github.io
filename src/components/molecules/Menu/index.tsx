@@ -17,7 +17,7 @@ const createMenuItem = (item: IMenuItem, isSelected: boolean, onClick: VoidFunct
 }
 
 const Menu: React.FC<IProps> = ({ className, items }) => {
-  const [ selectedIndex, setMenuIndex ] = useState(0)
+  const [selectedIndex, setMenuIndex] = useState(0)
   const classProps = classNames(className, styles.default)
   return (
     <Layout className={classProps} direction={Direction.Column}>

@@ -11,8 +11,6 @@ const Post = ({ match }) => {
   const key = match.params.postKey
   const content: IPostContent = contents[key]
   const info: IPost = posts[content.index]
-  console.log(info)
-  console.log(content)
 
   return (
     <Frame type={FrameType.Content}>
