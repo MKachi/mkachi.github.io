@@ -131,7 +131,7 @@ const parseTags = async (list) => {
   return result
 }
 
-module.exports = async () => {
+const createDB = async () => {
   const post = await loadPosts(config.posts)
   const tags = await parseTags(post.list)
   const json = {
@@ -140,3 +140,5 @@ module.exports = async () => {
   }
   await writeFile(config.src + '/database.json', JSON.stringify(json))
 }
+
+createDB()

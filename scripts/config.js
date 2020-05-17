@@ -13,8 +13,12 @@ module.exports = {
     host: 'localhost',
     port: 9000
   },
+  proxyServer: {
+    timezone: 'Asia/Seoul',
+    port: 9001
+  },
   analyzer: {
     host: 'localhost',
-    port: 9001
+    port: 9002
   }
 }

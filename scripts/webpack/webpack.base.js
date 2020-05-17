@@ -1,7 +1,6 @@
 'use strict'
 
 const config = require('../config')
-const createDB = require('../createDB')
 
 const {
   CleanWebpackPlugin
@@ -20,7 +19,6 @@ const eslintRule = () => ({
     emitWarning: !config.showLintError
   }
 })
-createDB()
 
 module.exports = {
   entry: {
