@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import useDB from '../hooks/useDB'
 
-import queryString from 'query-string'
-
 import Frame, { FrameType } from '../components/molecules/Frame'
 import Layout, { Direction, HorizontalAlign } from '../components/molecules/Layout/index'
 import Profile from '../components/organisms/Profile'
@@ -11,15 +9,11 @@ import Pagination from '../components/organisms/Pagination'
 import Footer from '../components/organisms/Footer'
 import Menu from '../components/molecules/Menu'
 import P from '../components/atoms/P'
-import A from '../components/atoms/A/index'
-import { LinkType } from '../components/atoms/A/index'
 
-const Home = ({ location }) => {
+const Home = () => {
   const [pageIndex, setPageIndex] = useState(1)
   const { posts } = useDB()
   const showPostCount = 8
-
-  const query = queryString.parse(location.search)
 
   let pageCount = Math.floor(posts.length / 8)
   if (posts.length % showPostCount !== 0) {
@@ -49,7 +43,8 @@ const Home = ({ location }) => {
                 </Layout>
               )
             },
-            { name: 'Tags', component: <P text={'text2'} /> }
+            { name: 'Tags', component: <P text={'text2'} /> },
+            { name: 'Search', component: <P text={'text2'} /> }
           ]}
         />
       </Frame>
