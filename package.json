@@ -23,7 +23,6 @@
   "homepage": "https://github.com/MKachi/mkachi.github.io#readme",
   "dependencies": {
     "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
@@ -36,7 +35,6 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@types/classnames": "^2.2.9",
-    "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
