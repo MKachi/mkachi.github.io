@@ -27,17 +27,14 @@ const createButton = (buttonIndex: number, pageIndex: number, onChangeIndex = (i
   const classProps = classNames(styles.button, buttonIndex === pageIndex ? styles.selected : null)
   return (
     <li className={styles['list-item']}>
-      <Button className={classProps} text={buttonIndex.toString()} onClick={() => onChangeIndex(buttonIndex)} />
+      <Button className={classProps} onClick={() => onChangeIndex(buttonIndex)}>
+        {buttonIndex.toString()}
+      </Button>
     </li>
   )
 }
 
-const createArrow = (
-  left: boolean,
-  pageIndex: number,
-  pageCount: number,
-  onChangeIndex = (index: number) => {}
-): JSX.Element => {
+const createArrow = (left: boolean, pageIndex: number, pageCount: number, onChangeIndex = (index: number) => {}): JSX.Element => {
   if (left) {
     const classProps = classNames(styles['list-item'], pageIndex === 1 ? styles['arrow-hide'] : null)
     return (
@@ -80,7 +77,7 @@ const rightHide = (pageIndex: number, pageCount: number, onChangeIndex = (index:
 }
 
 const leftHide = (pageIndex: number, pageCount: number, onChangeIndex = (index: number) => {}): JSX.Element[] => {
-  const result: JSX.Element[] = [ createButton(1, pageIndex, onChangeIndex), MoreLine ]
+  const result: JSX.Element[] = [createButton(1, pageIndex, onChangeIndex), MoreLine]
   for (let i = pageCount - 4; i <= pageCount; ++i) {
     result.push(createButton(i, pageIndex, onChangeIndex))
   }
@@ -88,7 +85,7 @@ const leftHide = (pageIndex: number, pageCount: number, onChangeIndex = (index: 
 }
 
 const sideHide = (pageIndex: number, pageCount: number, onChangeIndex = (index: number) => {}): JSX.Element[] => {
-  const result: JSX.Element[] = [ createButton(1, pageIndex, onChangeIndex), MoreLine ]
+  const result: JSX.Element[] = [createButton(1, pageIndex, onChangeIndex), MoreLine]
   for (let i = pageIndex - 1; i <= pageIndex + 1; ++i) {
     result.push(createButton(i, pageIndex, onChangeIndex))
   }

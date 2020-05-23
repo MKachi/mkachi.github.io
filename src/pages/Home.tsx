@@ -11,7 +11,7 @@ import Menu from '../components/molecules/Menu'
 import P from '../components/atoms/P'
 
 const Home = () => {
-  const [pageIndex, setPageIndex] = useState(1)
+  const [ pageIndex, setPageIndex ] = useState(1)
   const { posts } = useDB()
   const showPostCount = 8
 
@@ -24,7 +24,9 @@ const Home = () => {
       <Frame type={FrameType.Container}>
         <Layout direction={Direction.Row} horizontalAlign={HorizontalAlign.SpaceAround}>
           <Profile
-            profile={'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'}
+            profile={
+              'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'
+            }
             username={'M_Kachi'}
             description={'adsfadsfas'}
             github={'https://github.com/mkachi'}
@@ -41,10 +43,9 @@ const Home = () => {
                   <PostList pageIndex={pageIndex} showPostCount={showPostCount} posts={posts} />
                   <Pagination pageIndex={pageIndex} pageCount={pageCount} onChangeIndex={setPageIndex} />
                 </Layout>
-              )
+              ),
             },
             { name: 'Tags', component: <P text={'text2'} /> },
-            { name: 'Search', component: <P text={'text2'} /> }
           ]}
         />
       </Frame>
