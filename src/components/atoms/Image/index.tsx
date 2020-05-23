@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 export enum Type {
   Default = 'img',
-  Background = 'background',
+  Background = 'background'
 }
 
 interface IProps {
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const Image: React.FC<IProps> = ({ className, type = Type.Default, src }) => {
-  const classProps = classNames(className, styles[type], styles.default)
+  const classProps = classNames(className, styles['default'], styles[type])
   if (type === Type.Default) {
     return <img className={classProps} src={src} />
   } else {

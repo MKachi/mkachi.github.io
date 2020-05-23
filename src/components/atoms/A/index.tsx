@@ -17,7 +17,7 @@ interface IProps {
 }
 
 const A: React.FC<IProps> = ({ className, to, children, type = LinkType.Url }) => {
-  const classProps = classNames(className, styles.default)
+  const classProps = classNames(className, styles['default'])
   if (type == LinkType.Route) {
     return (
       <Link className={classProps} to={to}>

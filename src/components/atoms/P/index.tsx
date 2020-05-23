@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const P: React.FC<IProps> = ({ className, text, align = Align.Left }) => {
-  const classProps = classNames(className, styles.default, styles[align])
+  const classProps = classNames(className, styles['default'], styles[align])
   return <p className={classProps}>{text}</p>
 }
 

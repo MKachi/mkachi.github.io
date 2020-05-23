@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const Button: React.FC<IProps> = ({ className, children, onClick = () => {} }) => {
-  const classProps = classNames(className, styles.default)
+  const classProps = classNames(className, styles['default'])
   return (
     <button className={classProps} onClick={onClick}>
       {children}

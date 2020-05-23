@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const Tag: React.FC<IProps> = ({ className, text }) => {
-  const classProps = classNames(className, styles.default)
+  const classProps = classNames(className, styles['default'])
   return <span className={classProps}>{text}</span>
 }
 

@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const Card: React.FC<IProps> = ({ className, children }) => {
-  const classProps = classNames(className, styles.default)
+  const classProps = classNames(className, styles['default'])
   return <section className={classProps}>{children}</section>
 }
 

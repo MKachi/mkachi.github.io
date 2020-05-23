@@ -29,9 +29,9 @@ const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount, posts
         return (
           <Card>
             <Layout direction={Direction.Column}>
-              <P className={styles.date} text={post.date} />
+              <P className={styles['date']} text={post.date} />
               <A className={styles['post-link']} to={`/post/${post.key}`} type={LinkType.Route}>
-                <P className={styles.title} text={post.title} />
+                <P className={styles['title']} text={post.title} />
               </A>
               <Layout className={styles['tag-list']} direction={Direction.Row}>
                 {post.tags.map(tag => (

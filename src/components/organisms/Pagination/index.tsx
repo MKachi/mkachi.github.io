@@ -24,7 +24,7 @@ const clamp = (value: number, min: number, max: number): number => {
 }
 
 const createButton = (buttonIndex: number, pageIndex: number, onChangeIndex = (index: number) => {}): JSX.Element => {
-  const classProps = classNames(styles.button, buttonIndex === pageIndex ? styles.selected : null)
+  const classProps = classNames(styles['button'], buttonIndex === pageIndex ? styles['selected'] : null)
   return (
     <li className={styles['list-item']}>
       <Button className={classProps} onClick={() => onChangeIndex(buttonIndex)}>
@@ -39,8 +39,8 @@ const createArrow = (left: boolean, pageIndex: number, pageCount: number, onChan
     const classProps = classNames(styles['list-item'], pageIndex === 1 ? styles['arrow-hide'] : null)
     return (
       <li className={classProps}>
-        <Button className={styles.button} onClick={() => onChangeIndex(clamp(pageIndex - 1, 1, pageCount))}>
-          <MdKeyboardArrowLeft className={styles.symbol} />
+        <Button className={styles['button']} onClick={() => onChangeIndex(clamp(pageIndex - 1, 1, pageCount))}>
+          <MdKeyboardArrowLeft className={styles['symbol']} />
         </Button>
       </li>
     )
@@ -49,8 +49,8 @@ const createArrow = (left: boolean, pageIndex: number, pageCount: number, onChan
   const classProps = classNames(styles['list-item'], pageIndex === pageCount ? styles['arrow-hide'] : null)
   return (
     <li className={classProps}>
-      <Button className={styles.button} onClick={() => onChangeIndex(clamp(pageIndex + 1, 1, pageCount))}>
-        <MdKeyboardArrowRight className={styles.symbol} />
+      <Button className={styles['button']} onClick={() => onChangeIndex(clamp(pageIndex + 1, 1, pageCount))}>
+        <MdKeyboardArrowRight className={styles['symbol']} />
       </Button>
     </li>
   )
@@ -105,10 +105,10 @@ const Pagination: React.FC<IProps> = ({ className, pageIndex, pageCount, onChang
     buttons = sideHide(pageIndex, pageCount, onChangeIndex)
   }
 
-  const classProps = classNames(className, styles.default)
+  const classProps = classNames(className, styles['default'])
   return (
     <nav className={classProps}>
-      <ul className={styles.buttons}>
+      <ul className={styles['buttons']}>
         {createArrow(true, pageIndex, pageCount, onChangeIndex)}
         {buttons}
         {createArrow(false, pageIndex, pageCount, onChangeIndex)}
