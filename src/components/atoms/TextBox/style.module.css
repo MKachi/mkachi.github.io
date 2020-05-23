@@ -1,0 +1,13 @@
+.default {
+  padding: 0;
+  margin-bottom: 7px;
+  max-width: 200px;
+  height: 28px;
+  border: 0;
+  border-bottom: 1px solid #000000;
+  transition: all 0.3s ease;
+}
+
+.default:focus {
+  border-bottom: 1px solid #008cff;
+}
