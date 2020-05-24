@@ -1,32 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import styles from './style.module.css'
 
-import Layout, { Direction } from '../Layout/index'
-import { IMenuItem } from '../../../models/menuItem'
+import useMenu from '../../../hooks/useMenu'
+
+import Layout, { Direction } from '../Layout'
 import Button from '../../atoms/Button'
 
 interface IProps {
   className?: string
-  items: IMenuItem[]
+  items: string[]
 }
 
-const createMenuItem = (item: IMenuItem, isSelected: boolean, onClick: VoidFunction) => {
-  const classProps = classNames(styles.item, isSelected ? styles.selected : '')
-  return <Button className={classProps} text={item.name} onClick={onClick} />
+const createMenuItem = (item: string, isSelected: boolean, onClick: VoidFunction) => {
+  const classProps = classNames(styles['item'], isSelected ? styles['selected'] : '')
+  return (
+    <Button className={classProps} onClick={onClick}>
+      {item}
+    </Button>
+  )
 }
 
 const Menu: React.FC<IProps> = ({ className, items }) => {
-  const [selectedIndex, setMenuIndex] = useState(0)
-  const classProps = classNames(className, styles.default)
+  const { selectMenu, setSelectMenu } = useMenu()
+  const classProps = classNames(className, styles['default'])
+
   return (
-    <Layout className={classProps} direction={Direction.Column}>
-      <Layout className={styles.menus} direction={Direction.Row}>
-        {items.map((value, index) => {
-          return createMenuItem(value, selectedIndex === index, () => setMenuIndex(index))
-        })}
-      </Layout>
-      <div className={styles.content}>{items[selectedIndex].component}</div>
+    <Layout className={classProps} direction={Direction.Row}>
+      {items.map(value => {
+        return createMenuItem(value, selectMenu === value, () => setSelectMenu(value))
+      })}
     </Layout>
   )
 }
