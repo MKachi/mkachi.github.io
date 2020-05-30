@@ -8,16 +8,14 @@ import Profile from '../components/organisms/Profile'
 import PostList from '../components/organisms/PostList/index'
 import Pagination from '../components/organisms/Pagination'
 import Footer from '../components/organisms/Footer'
-import Menu from '../components/molecules/Menu'
-import P from '../components/atoms/P'
+import Menu from '../components/molecules/TabMenu'
 
 const Home = () => {
-  const [pageIndex, setPageIndex] = useState(1)
+  const [ pageIndex, setPageIndex ] = useState(1)
   const { posts } = useDB()
 
-  const items = ['Archive', 'Tags']
-  const { selectMenu, setSelectMenu } = useMenu()
-  setSelectMenu(items[0])
+  const items = [ 'Archive', 'Tags' ]
+  const { menuIndex } = useMenu()
   const showPostCount = 8
 
   let pageCount = Math.floor(posts.length / 8)
@@ -29,7 +27,9 @@ const Home = () => {
       <Frame type={FrameType.Container}>
         <Layout direction={Direction.Row} horizontalAlign={HorizontalAlign.SpaceAround}>
           <Profile
-            profile={'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'}
+            profile={
+              'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'
+            }
             username={'M_Kachi'}
             description={'adsfadsfas'}
             github={'https://github.com/mkachi'}
@@ -38,11 +38,12 @@ const Home = () => {
           />
         </Layout>
         <Menu items={items} />
-        {}
-        <Layout direction={Direction.Column}>
-          <PostList pageIndex={pageIndex} showPostCount={showPostCount} posts={posts} />
-          <Pagination pageIndex={pageIndex} pageCount={pageCount} onChangeIndex={setPageIndex} />
-        </Layout>
+        {items[menuIndex] === 'Archive' && (
+          <Layout direction={Direction.Column}>
+            <PostList pageIndex={pageIndex} showPostCount={showPostCount} posts={posts} />
+            <Pagination pageIndex={pageIndex} pageCount={pageCount} onChangeIndex={setPageIndex} />
+          </Layout>
+        )}
       </Frame>
       <Footer />
     </Frame>

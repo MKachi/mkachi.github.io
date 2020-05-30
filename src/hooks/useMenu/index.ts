@@ -1,11 +1,11 @@
-import { MenuContext } from '../../contexts/MenuContext'
+import { TabMenuContext } from '../../contexts/TabMenuContext'
 import { useContext } from 'react'
 
 const useSearch = () => {
-  const context = useContext(MenuContext)
+  const context = useContext(TabMenuContext)
   return {
-    selectMenu: context.selectMenu,
-    setSelectMenu: context.setSelectMenu,
+    menuIndex: context.menuIndex,
+    setMenuIndex: context.setMenuIndex,
     searchText: context.searchText,
     setSearchText: context.setSearchText,
     searchMode: context.searchMode,

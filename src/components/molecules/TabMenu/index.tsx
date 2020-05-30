@@ -21,17 +21,17 @@ const createMenuItem = (item: string, isSelected: boolean, onClick: VoidFunction
   )
 }
 
-const Menu: React.FC<IProps> = ({ className, items }) => {
-  const { selectMenu, setSelectMenu } = useMenu()
+const TabMenu: React.FC<IProps> = ({ className, items }) => {
+  const { menuIndex, setMenuIndex } = useMenu()
   const classProps = classNames(className, styles['default'])
 
   return (
     <Layout className={classProps} direction={Direction.Row}>
-      {items.map(value => {
-        return createMenuItem(value, selectMenu === value, () => setSelectMenu(value))
+      {items.map((value, index) => {
+        return createMenuItem(value, index === menuIndex, () => setMenuIndex(index))
       })}
     </Layout>
   )
 }
 
-export default Menu
+export default TabMenu
