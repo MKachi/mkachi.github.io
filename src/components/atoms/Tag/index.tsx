@@ -5,7 +5,7 @@ import styles from './style.module.css'
 interface IProps {
   className?: string
   children?: React.ReactNode
-  onClick(): void
+  onClick?(): void
 }
 
 const Tag: React.FC<IProps> = ({ className, children, onClick = () => {} }) => {
