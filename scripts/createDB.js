@@ -140,7 +140,6 @@ const parseTags = async (list) => {
 const createDB = async () => {
   const post = await loadPosts(config.posts)
   const tags = await parseTags(post.list)
-  console.log(tags)
   const json = {
     post,
     tags
