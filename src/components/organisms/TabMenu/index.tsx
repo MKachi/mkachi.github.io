@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 import useMenu from '../../../hooks/useMenu'
 
-import Layout, { Direction } from '../Layout'
+import Layout, { Direction } from '../../molecules/Layout'
 import Button from '../../atoms/Button'
 
 interface IProps {

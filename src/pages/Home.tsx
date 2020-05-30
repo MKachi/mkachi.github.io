@@ -8,14 +8,18 @@ import Profile from '../components/organisms/Profile'
 import PostList from '../components/organisms/PostList/index'
 import Pagination from '../components/organisms/Pagination'
 import Footer from '../components/organisms/Footer'
-import Menu from '../components/molecules/TabMenu'
+import Menu from '../components/organisms/TabMenu'
+
+const isSelectedMenu = (menuItems: string[], menuName: string): boolean => {
+  const { menuIndex } = useMenu()
+  return menuItems[menuIndex] === menuName
+}
 
 const Home = () => {
   const [ pageIndex, setPageIndex ] = useState(1)
   const { posts } = useDB()
 
-  const items = [ 'Archive', 'Tags' ]
-  const { menuIndex } = useMenu()
+  const menuItems = [ 'Archive', 'Tags' ]
   const showPostCount = 8
 
   let pageCount = Math.floor(posts.length / 8)
@@ -37,13 +41,14 @@ const Home = () => {
             rss={'https://www.facebook.com/mkachi'}
           />
         </Layout>
-        <Menu items={items} />
-        {items[menuIndex] === 'Archive' && (
+        <Menu items={menuItems} />
+        {isSelectedMenu(menuItems, 'Archive') && (
           <Layout direction={Direction.Column}>
             <PostList pageIndex={pageIndex} showPostCount={showPostCount} posts={posts} />
             <Pagination pageIndex={pageIndex} pageCount={pageCount} onChangeIndex={setPageIndex} />
           </Layout>
         )}
+        {isSelectedMenu(menuItems, 'Tags') && <Layout direction={Direction.Column}>{}</Layout>}}
       </Frame>
       <Footer />
     </Frame>
