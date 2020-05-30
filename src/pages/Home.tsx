@@ -9,6 +9,7 @@ import PostList from '../components/organisms/PostList/index'
 import Pagination from '../components/organisms/Pagination'
 import Footer from '../components/organisms/Footer'
 import Menu from '../components/organisms/TabMenu'
+import TagList from '../components/organisms/TagList'
 
 const isSelectedMenu = (menuItems: string[], menuName: string): boolean => {
   const { menuIndex } = useMenu()
@@ -17,7 +18,7 @@ const isSelectedMenu = (menuItems: string[], menuName: string): boolean => {
 
 const Home = () => {
   const [ pageIndex, setPageIndex ] = useState(1)
-  const { posts } = useDB()
+  const { posts, tags } = useDB()
 
   const menuItems = [ 'Archive', 'Tags' ]
   const showPostCount = 8
@@ -48,7 +49,7 @@ const Home = () => {
             <Pagination pageIndex={pageIndex} pageCount={pageCount} onChangeIndex={setPageIndex} />
           </Layout>
         )}
-        {isSelectedMenu(menuItems, 'Tags') && <Layout direction={Direction.Column}>{}</Layout>}}
+        {isSelectedMenu(menuItems, 'Tags') && <TagList tags={tags} />}
       </Frame>
       <Footer />
     </Frame>
