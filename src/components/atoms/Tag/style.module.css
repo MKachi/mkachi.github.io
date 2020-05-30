@@ -6,6 +6,7 @@
   cursor: pointer;
   border: 1px solid #47a4fc;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .default:hover {
