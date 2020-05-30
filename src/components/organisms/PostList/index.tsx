@@ -1,8 +1,5 @@
 import React from 'react'
-import classNames from 'classnames'
 import styles from './style.module.css'
-
-import useDB from '../../../hooks/useDB'
 
 import Layout, { Direction } from '../../molecules/Layout'
 import Card from '../../molecules/Card'
@@ -34,9 +31,7 @@ const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount, posts
                 <P className={styles['title']} text={post.title} />
               </A>
               <Layout className={styles['tag-list']} direction={Direction.Row}>
-                {post.tags.map(tag => (
-                  <Tag text={`#${tag}`} />
-                ))}
+                {post.tags.map(tag => <Tag>{`#${tag}`}</Tag>)}
               </Layout>
             </Layout>
           </Card>
