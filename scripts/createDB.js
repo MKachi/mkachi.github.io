@@ -118,14 +118,20 @@ const loadPosts = async (postPath) => {
 }
 
 const parseTags = async (list) => {
-  const result = {}
+  const result = []
+  const tagSet = {}
   for (let i = 0; i < list.length; ++i) {
     const tags = list[i].tags
     for (let j = 0; j < tags.length; ++j) {
-      if (result[tags[j]] === undefined || result[tags[j]] === null) {
-        result[tags[j]] = []
+      if (tagSet[tags[j]] === undefined || result[tags[j] === null]) {
+        result.push({
+          name: tags[j],
+          posts: []
+        })
+        tagSet[tags[j]] = result.length - 1
       }
-      result[tags[j]].push(i)
+      const index = tagSet[tags[j]]
+      result[index].posts.push(i)
     }
   }
   return result
@@ -134,6 +140,7 @@ const parseTags = async (list) => {
 const createDB = async () => {
   const post = await loadPosts(config.posts)
   const tags = await parseTags(post.list)
+  console.log(tags)
   const json = {
     post,
     tags
