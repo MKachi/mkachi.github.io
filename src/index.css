@@ -2,9 +2,15 @@
 
 * {
   font-family: 'Spoqa Han Sans', 'Apple SD Gothic Neo', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  outline: none;
 }
 
 html,
 body {
   margin: 0;
+}
+
+svg {
+  display: inline;
+  vertical-align: middle;
 }

@@ -34,13 +34,18 @@ const createButton = (buttonIndex: number, pageIndex: number, onChangeIndex = (i
   )
 }
 
-const createArrow = (left: boolean, pageIndex: number, pageCount: number, onChangeIndex = (index: number) => {}): JSX.Element => {
+const createArrow = (
+  left: boolean,
+  pageIndex: number,
+  pageCount: number,
+  onChangeIndex = (index: number) => {}
+): JSX.Element => {
   if (left) {
     const classProps = classNames(styles['list-item'], pageIndex === 1 ? styles['arrow-hide'] : null)
     return (
       <li className={classProps}>
         <Button className={styles['button']} onClick={() => onChangeIndex(clamp(pageIndex - 1, 1, pageCount))}>
-          <MdKeyboardArrowLeft className={styles['symbol']} />
+          <MdKeyboardArrowLeft />
         </Button>
       </li>
     )
@@ -50,7 +55,7 @@ const createArrow = (left: boolean, pageIndex: number, pageCount: number, onChan
   return (
     <li className={classProps}>
       <Button className={styles['button']} onClick={() => onChangeIndex(clamp(pageIndex + 1, 1, pageCount))}>
-        <MdKeyboardArrowRight className={styles['symbol']} />
+        <MdKeyboardArrowRight />
       </Button>
     </li>
   )
@@ -77,7 +82,7 @@ const rightHide = (pageIndex: number, pageCount: number, onChangeIndex = (index:
 }
 
 const leftHide = (pageIndex: number, pageCount: number, onChangeIndex = (index: number) => {}): JSX.Element[] => {
-  const result: JSX.Element[] = [createButton(1, pageIndex, onChangeIndex), MoreLine]
+  const result: JSX.Element[] = [ createButton(1, pageIndex, onChangeIndex), MoreLine ]
   for (let i = pageCount - 4; i <= pageCount; ++i) {
     result.push(createButton(i, pageIndex, onChangeIndex))
   }
@@ -85,7 +90,7 @@ const leftHide = (pageIndex: number, pageCount: number, onChangeIndex = (index: 
 }
 
 const sideHide = (pageIndex: number, pageCount: number, onChangeIndex = (index: number) => {}): JSX.Element[] => {
-  const result: JSX.Element[] = [createButton(1, pageIndex, onChangeIndex), MoreLine]
+  const result: JSX.Element[] = [ createButton(1, pageIndex, onChangeIndex), MoreLine ]
   for (let i = pageIndex - 1; i <= pageIndex + 1; ++i) {
     result.push(createButton(i, pageIndex, onChangeIndex))
   }

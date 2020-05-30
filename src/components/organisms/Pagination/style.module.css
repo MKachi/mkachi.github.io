@@ -21,11 +21,6 @@
   height: 32px;
 }
 
-.symbol {
-  display: flex;
-  margin: auto;
-}
-
 .arrow-hide {
   visibility: hidden;
 }
