@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useDB from '../hooks/useDB'
 import useMenu from '../hooks/useMenu'
 
@@ -9,11 +9,16 @@ import Footer from '../components/organisms/Footer'
 import TabMenu from '../components/organisms/TabMenu'
 import TagList from '../components/organisms/TagList'
 import PostListTemplate from '../components/templates/PostListTemplate'
+import SearchBox from '../components/organisms/SearchBox'
+import TextBox from '../components/atoms/TextBox'
 
 const menuItems = [ 'Archive', 'Tags' ]
 
 const isSelectedMenu = (menuName: string): boolean => {
-  const { menuIndex } = useMenu()
+  const { menuIndex, searchMode } = useMenu()
+  if (searchMode) {
+    return false
+  }
   return menuItems[menuIndex] === menuName
 }
 
@@ -36,6 +41,8 @@ const Home = () => {
             rss={'https://www.facebook.com/mkachi'}
           />
         </Layout>
+        <TextBox />
+        {/* <SearchBox /> */}
         <TabMenu items={menuItems} />
         {isSelectedMenu('Archive') && <PostListTemplate posts={posts} />}
         {isSelectedMenu('Tags') && <TagList tags={tags} />}
