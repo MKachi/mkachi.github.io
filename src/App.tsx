@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom'
 import { HashRouter as Router, Switch } from 'react-router-dom'
 import router from './router'
 import './index.css'
-import TabMenuProvider from './contexts/TabMenuContext'
+import MenuProvider from './contexts/MenuContext'
 
 const App: React.FC = () => {
   return (
     <Router>
-      <TabMenuProvider>
+      <MenuProvider>
         <Switch>{router()}</Switch>
-      </TabMenuProvider>
+      </MenuProvider>
     </Router>
   )
 }

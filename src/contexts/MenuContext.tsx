@@ -10,19 +10,19 @@ interface IContextProps {
   setSearchMode(value: boolean): void
 }
 
-export const TabMenuContext = createContext<IContextProps | null>(null)
+export const MenuContext = createContext<IContextProps | null>(null)
 
 interface IProps {
   children?: React.ReactNode
 }
 
-const TabMenuProvider: React.FC<IProps> = ({ children }) => {
+const MenuProvider: React.FC<IProps> = ({ children }) => {
   const [ menuIndex, setMenuIndex ] = useState(0)
   const [ searchText, setSearchText ] = useState('')
   const [ searchMode, setSearchMode ] = useState(false)
 
   return (
-    <TabMenuContext.Provider
+    <MenuContext.Provider
       value={{
         menuIndex,
         setMenuIndex,
@@ -33,8 +33,8 @@ const TabMenuProvider: React.FC<IProps> = ({ children }) => {
       }}
     >
       {children}
-    </TabMenuContext.Provider>
+    </MenuContext.Provider>
   )
 }
 
-export default TabMenuProvider
+export default MenuProvider
