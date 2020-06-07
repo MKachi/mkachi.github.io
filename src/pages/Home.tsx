@@ -5,28 +5,22 @@ import useMenu from '../hooks/useMenu'
 import Frame, { FrameType } from '../components/molecules/Frame'
 import Layout, { Direction, HorizontalAlign } from '../components/molecules/Layout/index'
 import Profile from '../components/organisms/Profile'
-import PostList from '../components/organisms/PostList/index'
-import Pagination from '../components/organisms/Pagination'
 import Footer from '../components/organisms/Footer'
-import Menu from '../components/organisms/TabMenu'
+import TabMenu from '../components/organisms/TabMenu'
 import TagList from '../components/organisms/TagList'
+import PostListTemplate from '../components/templates/PostListTemplate'
 
-const isSelectedMenu = (menuItems: string[], menuName: string): boolean => {
+const menuItems = [ 'Archive', 'Tags' ]
+
+const isSelectedMenu = (menuName: string): boolean => {
   const { menuIndex } = useMenu()
   return menuItems[menuIndex] === menuName
 }
 
 const Home = () => {
-  const [ pageIndex, setPageIndex ] = useState(1)
   const { posts, tags } = useDB()
 
-  const menuItems = [ 'Archive', 'Tags' ]
-  const showPostCount = 8
-
-  let pageCount = Math.floor(posts.length / 8)
-  if (posts.length % showPostCount !== 0) {
-    pageCount += 1
-  }
+  console.log('render Home page')
   return (
     <Frame type={FrameType.Content}>
       <Frame type={FrameType.Container}>
@@ -42,14 +36,9 @@ const Home = () => {
             rss={'https://www.facebook.com/mkachi'}
           />
         </Layout>
-        <Menu items={menuItems} />
-        {isSelectedMenu(menuItems, 'Archive') && (
-          <Layout direction={Direction.Column}>
-            <PostList pageIndex={pageIndex} showPostCount={showPostCount} posts={posts} />
-            <Pagination pageIndex={pageIndex} pageCount={pageCount} onChangeIndex={setPageIndex} />
-          </Layout>
-        )}
-        {isSelectedMenu(menuItems, 'Tags') && <TagList tags={tags} />}
+        <TabMenu items={menuItems} />
+        {isSelectedMenu('Archive') && <PostListTemplate posts={posts} />}
+        {isSelectedMenu('Tags') && <TagList tags={tags} />}
       </Frame>
       <Footer />
     </Frame>
