@@ -31,7 +31,7 @@ const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount, posts
                 <P className={styles['title']} text={post.title} />
               </A>
               <Layout className={styles['tag-list']} direction={Direction.Row} wrap={Wrap.Wrap}>
-                {post.tags.map(tag => <Tag>{`#${tag}`}</Tag>)}
+                {post.tags.map(tag => <Tag value={tag}>{`#${tag}`}</Tag>)}
               </Layout>
             </Layout>
           </Card>
