@@ -16,7 +16,7 @@ const TagList: React.FC<IProps> = ({ className, tags }) => {
   return (
     <Layout className={classProps} direction={Direction.Row} wrap={Wrap.Wrap}>
       {tags.map(value => {
-        return <Tag className={styles['tag']} value={value.name}>{`#${value.name} | ${value.posts.length}`}</Tag>
+        return <Tag className={styles['tag']} value={value.name}>{`#${value.name} | ${value.count}`}</Tag>
       })}
     </Layout>
   )
