@@ -14,7 +14,7 @@ import SearchBox from '../components/organisms/SearchBox'
 import { IPost } from '../models/post'
 import { ITag } from '../models/tag'
 
-const menuItems = ['Archive', 'Tags']
+const menuItems = [ 'Archive', 'Tags' ]
 
 const isSelectedMenu = (menuName: string): boolean => {
   const { menuIndex } = useMenu()
@@ -54,27 +54,27 @@ const getSearchPosts = (searchText: string, posts: IPost[]) => {
 const showSearchList = (posts: IPost[], searchText: string, setSearchText: (value: string) => void) => {
   return (
     <React.Fragment>
-      <SearchBox searchText={searchText} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value)} />
+      <SearchBox
+        searchText={searchText}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value)}
+      />
       <PostListTemplate posts={getSearchPosts(searchText, posts)} />
     </React.Fragment>
   )
 }
 
 const Home = () => {
-  const [searchText, setSearchText] = useState('')
   const { posts, tags } = useDB()
-  const { searchMode } = useMenu()
+  const { searchMode, searchText, setSearchText } = useMenu()
 
-  if (searchMode) {
-  }
-
-  console.log('render Home page')
   return (
     <Frame type={FrameType.Content}>
       <Frame type={FrameType.Container}>
         <Layout direction={Direction.Row} horizontalAlign={HorizontalAlign.SpaceAround}>
           <Profile
-            profile={'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'}
+            profile={
+              'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'
+            }
             username={'M_Kachi'}
             description={'adsfadsfas'}
             github={'https://github.com/mkachi'}
@@ -82,7 +82,11 @@ const Home = () => {
             rss={'https://www.facebook.com/mkachi'}
           />
         </Layout>
-        {searchMode ? showSearchList(posts, searchText, (value: string) => setSearchText(value)) : showPostList(posts, tags)}
+        {searchMode ? (
+          showSearchList(posts, searchText, (value: string) => setSearchText(value))
+        ) : (
+          showPostList(posts, tags)
+        )}
       </Frame>
       <Footer />
     </Frame>

@@ -8,6 +8,8 @@ const useSearch = () => {
   return {
     menuIndex: context.menuIndex,
     setMenuIndex: context.setMenuIndex,
+    searchText: context.searchText,
+    setSearchText: context.setSearchText,
     searchMode: context.searchMode,
     setSearchMode: (value: boolean) => {
       context.setSearchMode(value)
@@ -15,6 +17,8 @@ const useSearch = () => {
         if (history.location.pathname !== '/') {
           history.push('/')
         }
+      } else {
+        context.setSearchText('')
       }
     }
   }
