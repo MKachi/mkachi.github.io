@@ -1,7 +1,7 @@
 .default {
-  border: 0;
   border-bottom: 1px solid #9c9c9c;
   transition: all 0.3s ease;
+  border-radius: 0;
 }
 
 .default:focus {

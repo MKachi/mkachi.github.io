@@ -1,4 +1,6 @@
-.default {}
+.default {
+  margin: 15px 0px;
+}
 
 .buttons {
   display: flex;
