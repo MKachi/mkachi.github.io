@@ -40,6 +40,10 @@ const createArrow = (
   pageCount: number,
   onChangeIndex = (index: number) => {}
 ): JSX.Element => {
+  if (pageCount <= 0) {
+    return null
+  }
+
   if (left) {
     const classProps = classNames(styles['list-item'], pageIndex === 1 ? styles['arrow-hide'] : null)
     return (
