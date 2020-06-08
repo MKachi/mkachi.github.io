@@ -1,0 +1,89 @@
+.default {}
+
+
+.post-header {}
+
+.post-title {
+  color: #3d3d3d;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.post-time {
+  color: #9c9c9c;
+  font-size: 0.8em;
+}
+
+.post-tags {
+  margin-top: 5px;
+}
+
+.post-content {
+  color: #5e5e5e;
+  font-size: 1.0em;
+  margin-top: 10px;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: #3d3d3d;
+  font-weight: 500;
+}
+
+.post-content h1 {
+  font-size: 2em;
+}
+
+.post-content h2 {
+  font-size: 1.8em;
+}
+
+.post-content h3 {
+  font-size: 1.6em;
+}
+
+.post-content h4 {
+  font-size: 1.4em;
+}
+
+.post-content h5 {
+  font-size: 1.2em;
+}
+
+.post-content h6 {
+  color: #979696;
+  font-size: 1.2em;
+}
+
+.post-content ol,
+.post-content ul {
+  padding: 0.2em 0em 0em 1em;
+}
+
+.post-content code {
+  color: #3d3d3d;
+  font-weight: 500;
+  padding: 0.02em 0.3em;
+  border-radius: 5px;
+  background-color: #1b1f230d;
+}
+
+.post-content pre {
+  color: #3d3d3d;
+  font-weight: 500;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: #1b1f230d;
+}
+
+.post-content pre code {
+  color: #3d3d3d;
+  font-weight: 400;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+}

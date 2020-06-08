@@ -18,7 +18,7 @@ const Post = ({ match }) => {
         <title>{info.title}</title>
       </Helmet>
       <Frame type={FrameType.Container}>
-        <PostTemplate content={content} />
+        <PostTemplate info={info} content={content} />
       </Frame>
       <Footer />
     </Frame>

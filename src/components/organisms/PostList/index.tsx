@@ -6,7 +6,7 @@ import Card from '../../molecules/Card'
 import A, { LinkType } from '../../atoms/A'
 import P from '../../atoms/P'
 import { IPost } from '../../../models/post'
-import Tag from '../../atoms/Tag/index'
+import Tag from '../../atoms/Tag'
 
 interface IProps {
   className?: string
