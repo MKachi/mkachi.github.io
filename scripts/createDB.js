@@ -119,21 +119,22 @@ const loadPosts = async (postPath) => {
 
 const parseTags = async (list) => {
   const result = []
-  const tagSet = {}
-  for (let i = 0; i < list.length; ++i) {
-    const tags = list[i].tags
-    for (let j = 0; j < tags.length; ++j) {
-      if (tagSet[tags[j]] === undefined || result[tags[j] === null]) {
+  const tagMap = new Map()
+
+  list.forEach(post => {
+    const tags = post.tags
+    tags.forEach((tag) => {
+      if (!tagMap.has(tag)) {
+        tagMap.set(tag, result.length)
         result.push({
-          name: tags[j],
-          posts: []
+          name: tag,
+          count: 0
         })
-        tagSet[tags[j]] = result.length - 1
       }
-      const index = tagSet[tags[j]]
-      result[index].posts.push(i)
-    }
-  }
+      const index = tagMap.get(tag)
+      result[index].count += 1
+    })
+  })
   return result
 }
 
