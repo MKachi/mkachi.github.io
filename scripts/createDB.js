@@ -39,34 +39,32 @@ const parsePost = async (filePath) => {
   }
   const data = await readFile(filePath, 'utf-8')
   const lines = data.split('\n')
-  let reader = ''
-  let content = false
-  for (let i = 1; i < lines.length; ++i) {
-    if (lines[i] === '---') {
-      content = true
-      continue
+
+  let header = ''
+  for (let i = 0; i < lines.length; ++i) {
+    const line = lines[i]
+    header += line + '\n'
+    if (i !== 0 && line === '---') {
+      header += '\n'
+      break
     }
 
-    if (content) {
-      reader += lines[i]
-    } else {
-      const endIndex = lines[i].indexOf(':')
-      if (endIndex < 0) {
-        continue
-      }
-      const key = lines[i].substring(0, endIndex).trim()
-      let value = lines[i].substring(endIndex + 1).trim()
-      if (key === 'tags') {
-        const labels = value.substring(1, value.length - 1).trim().split(',')
-        value = []
-        for (let j = 0; j < labels.length; ++j) {
-          value.push(labels[j].trim())
-        }
-      }
-      result[key] = value
+    const endIndex = line.indexOf(':')
+    if (endIndex < 0) {
+      continue
     }
+    const key = line.substring(0, endIndex).trim()
+    let value = line.substring(endIndex + 1).trim()
+    if (key === 'tags') {
+      const labels = value.substring(1, value.length - 1).trim().split(',')
+      value = []
+      for (let j = 0; j < labels.length; ++j) {
+        value.push(labels[j].trim())
+      }
+    }
+    result[key] = value
   }
-  result.content = reader
+  result.content = data.replace(header, '')
   return result
 }
 const loadPosts = async (postPath) => {
