@@ -15,8 +15,6 @@ const useSearch = () => {
         if (history.location.pathname !== '/') {
           history.push('/')
         }
-      } else {
-        history.goBack()
       }
     }
   }
