@@ -7,6 +7,8 @@ import useMenu from '../../../hooks/useMenu'
 import Layout, { Direction } from '../../molecules/Layout'
 import Button from '../../atoms/Button'
 
+import { FaSearch } from 'react-icons/fa'
+
 interface IProps {
   className?: string
   items: string[]
@@ -22,7 +24,7 @@ const createMenuItem = (item: string, isSelected: boolean, onClick: VoidFunction
 }
 
 const TabMenu: React.FC<IProps> = ({ className, items }) => {
-  const { menuIndex, setMenuIndex } = useMenu()
+  const { menuIndex, setMenuIndex, setSearchMode } = useMenu()
   const classProps = classNames(className, styles['default'])
 
   return (
@@ -30,6 +32,9 @@ const TabMenu: React.FC<IProps> = ({ className, items }) => {
       {items.map((value, index) => {
         return createMenuItem(value, index === menuIndex, () => setMenuIndex(index))
       })}
+      <Button className={styles['search-button']} onClick={() => setSearchMode(true)}>
+        <FaSearch />
+      </Button>
     </Layout>
   )
 }
