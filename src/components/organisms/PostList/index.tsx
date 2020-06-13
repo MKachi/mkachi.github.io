@@ -22,16 +22,16 @@ const PostList: React.FC<IProps> = ({ className, pageIndex, showPostCount, posts
 
   return (
     <Layout className={className} direction={Direction.Column}>
-      {rangePosts.map(post => {
+      {rangePosts.map((post, index) => {
         return (
-          <Card>
+          <Card key={post.title}>
             <Layout direction={Direction.Column}>
               <P className={styles['date']} text={post.date} />
               <A className={styles['post-link']} to={`/post/${post.key}`} type={LinkType.Route}>
                 <P className={styles['title']} text={post.title} />
               </A>
               <Layout className={styles['tag-list']} direction={Direction.Row} wrap={Wrap.Wrap}>
-                {post.tags.map(tag => <Tag value={tag}>{`#${tag}`}</Tag>)}
+                {post.tags.map((tag, index) => <Tag key={tag} value={tag}>{`#${tag}`}</Tag>)}
               </Layout>
             </Layout>
           </Card>

@@ -17,7 +17,7 @@ interface IProps {
 const createMenuItem = (item: string, isSelected: boolean, onClick: VoidFunction) => {
   const classProps = classNames(styles['item'], isSelected ? styles['selected'] : '')
   return (
-    <Button className={classProps} onClick={onClick}>
+    <Button className={classProps} key={item} onClick={onClick}>
       {item}
     </Button>
   )

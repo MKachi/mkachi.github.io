@@ -26,7 +26,7 @@ const clamp = (value: number, min: number, max: number): number => {
 const createButton = (buttonIndex: number, pageIndex: number, onChangeIndex = (index: number) => {}): JSX.Element => {
   const classProps = classNames(styles['button'], buttonIndex === pageIndex ? styles['selected'] : null)
   return (
-    <li className={styles['list-item']}>
+    <li className={styles['list-item']} key={buttonIndex}>
       <Button className={classProps} onClick={() => onChangeIndex(buttonIndex)}>
         {buttonIndex.toString()}
       </Button>
