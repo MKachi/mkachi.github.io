@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useDB from '../hooks/useDB'
 import useMenu from '../hooks/useMenu'
 
@@ -37,14 +37,14 @@ const getSearchPosts = (searchText: string, posts: IPost[]) => {
     const tagList = searchText.replace(/#|tags:| /gi, '').split(',')
     tagList.forEach(target => {
       posts.forEach(post => {
-        if (post.tags.includes(target)) {
+        if (post.tags.includes(target.toLowerCase())) {
           result.push(post)
         }
       })
     })
   } else {
     posts.forEach(post => {
-      if (post.title.includes(searchText)) {
+      if (post.title.toLowerCase().includes(searchText.toLowerCase())) {
         result.push(post)
       }
     })

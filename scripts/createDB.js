@@ -59,7 +59,7 @@ const parsePost = async (filePath) => {
       const labels = value.substring(1, value.length - 1).trim().split(',')
       value = []
       for (let j = 0; j < labels.length; ++j) {
-        value.push(labels[j].trim())
+        value.push(labels[j].trim().toLowerCase())
       }
     }
     result[key] = value
@@ -125,7 +125,7 @@ const parseTags = async (list) => {
       if (!tagMap.has(tag)) {
         tagMap.set(tag, result.length)
         result.push({
-          name: tag,
+          name: tag.toLowerCase(),
           count: 0
         })
       }
