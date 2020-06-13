@@ -1,6 +1,16 @@
 .default {
   border-bottom: 1px solid #9c9c9c;
   margin-bottom: 15px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.default::-webkit-scrollbar {
+  display: none;
 }
 
 .item {
