@@ -29,13 +29,21 @@ const createSocialLink = (icon: JSX.Element, link: string) => {
   )
 }
 
-const Profile: React.FC<IProps> = ({ className, profile, username, description, github = '', facebook = '', rss = '' }) => {
+const Profile: React.FC<IProps> = ({
+  className,
+  profile,
+  username,
+  description,
+  github = '',
+  facebook = '',
+  rss = '',
+}) => {
   const githubIcon = classNames(styles['icon'], styles['github'])
   const facebookIcon = classNames(styles['icon'], styles['facebook'])
   const rssIcon = classNames(styles['icon'], styles['rss'])
   return (
     <Layout className={className} direction={Direction.Row}>
-      <Image className={styles['profile']} type={Type.Background} src={profile} />
+      <Image className={styles['profile']} type={Type.Default} src={profile} />
       <div className={styles['description']}>
         <P text={username} />
         <P text={description} />

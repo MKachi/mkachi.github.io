@@ -6,6 +6,7 @@
 
 .description {
   margin: auto 0px auto 5px;
+  word-break: break-all;
 }
 
 .icons {
