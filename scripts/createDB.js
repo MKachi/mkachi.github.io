@@ -45,7 +45,6 @@ const parsePost = async (filePath) => {
     const line = lines[i]
     header += line + '\n'
     if (i !== 0 && line === '---') {
-      header += '\n'
       break
     }
 
