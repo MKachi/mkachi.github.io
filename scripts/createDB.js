@@ -137,13 +137,17 @@ const parseTags = async (list) => {
 }
 
 const createDB = async () => {
-  const post = await loadPosts(config.posts)
-  const tags = await parseTags(post.list)
-  const json = {
-    post,
-    tags
+  try {
+    const post = await loadPosts(config.posts)
+    const tags = await parseTags(post.list)
+    const json = {
+      post,
+      tags
+    }
+    await writeFile(config.src + '/database.json', JSON.stringify(json))
+  } catch (ex) {
+    console.log(ex)
   }
-  await writeFile(config.src + '/database.json', JSON.stringify(json))
 }
 
 createDB()
