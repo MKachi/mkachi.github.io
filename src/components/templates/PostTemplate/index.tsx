@@ -5,6 +5,8 @@ import styles from './style.module.css'
 import Tag from '../../atoms/Tag'
 import { IPost, IPostContent } from '../../../models/post'
 import Layout, { Direction, Wrap } from '../../molecules/Layout'
+import Comment from '../../atoms/Comment'
+import { useLocation } from 'react-router-dom'
 
 interface IProps {
   className?: string
@@ -13,6 +15,8 @@ interface IProps {
 }
 
 const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
+  const location = useLocation()
+  console.log(location)
   const classProps = classNames(className, styles['default'])
   return (
     <article className={classProps}>
@@ -23,10 +27,13 @@ const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
           <span>{info.time}</span>
         </Layout>
         <Layout className={styles['post-tags']} direction={Direction.Row} wrap={Wrap.Wrap}>
-          {info.tags.map(tag => <Tag className={styles['tag']} value={tag}>{`#${tag}`}</Tag>)}
+          {info.tags.map(tag => (
+            <Tag className={styles['tag']} value={tag}>{`#${tag}`}</Tag>
+          ))}
         </Layout>
       </Layout>
       <div className={styles['post-content']} dangerouslySetInnerHTML={{ __html: content.content }} />
+      <Comment url={location.pathname} identifier={info.title} />
     </article>
   )
 }
