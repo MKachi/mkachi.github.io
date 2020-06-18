@@ -27,13 +27,11 @@ const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
           <span>{info.time}</span>
         </Layout>
         <Layout className={styles['post-tags']} direction={Direction.Row} wrap={Wrap.Wrap}>
-          {info.tags.map(tag => (
-            <Tag className={styles['tag']} value={tag}>{`#${tag}`}</Tag>
-          ))}
+          {info.tags.map(tag => <Tag className={styles['tag']} key={tag} value={tag}>{`#${tag}`}</Tag>)}
         </Layout>
       </Layout>
       <div className={styles['post-content']} dangerouslySetInnerHTML={{ __html: content.content }} />
-      <Comment url={location.pathname} identifier={info.title} />
+      <Comment title={info.title} url={`https://mkachi.github.io${location.pathname}`} identifier={location.pathname} />
     </article>
   )
 }
