@@ -16,7 +16,7 @@ interface IProps {
 
 const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
   const location = useLocation()
-  console.log(location)
+
   const classProps = classNames(className, styles['default'])
   return (
     <article className={classProps}>

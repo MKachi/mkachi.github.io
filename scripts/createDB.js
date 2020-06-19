@@ -63,7 +63,7 @@ const parsePost = async (filePath) => {
     }
     result[key] = value
   }
-  result.content = data.replace(header, '')
+  result.content = data.replace(header, '').replace(/<iframe/gi, '<c-youtube class="iframe-container"><iframe').replace(/iframe>/gi, 'iframe></c-youtube>')
   return result
 }
 const loadPosts = async (postPath) => {
