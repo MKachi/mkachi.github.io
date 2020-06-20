@@ -10,13 +10,13 @@ export enum Align {
 
 interface IProps {
   className?: string
-  text?: string
+  children?: React.ReactNode
   align?: Align
 }
 
-const P: React.FC<IProps> = ({ className, text, align = Align.Left }) => {
+const P: React.FC<IProps> = ({ className, children, align = Align.Left }) => {
   const classProps = classNames(className, styles['default'], styles[align])
-  return <p className={classProps}>{text}</p>
+  return <p className={classProps}>{children}</p>
 }
 
 export default P
