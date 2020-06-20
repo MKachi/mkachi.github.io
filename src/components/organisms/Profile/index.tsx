@@ -12,16 +12,17 @@ import { ISocialLink } from '../../../models/socialLink'
 interface IProps {
   className?: string
   profile: string
-  username: string
+  username?: string
   description?: string
   socialLinks?: ISocialLink[]
   resume?: string
+  children?: React.ReactNode
 }
 
 const createSocialLink = (index: number, socialLink: ISocialLink) => {
-  const [isFocus, setFocus] = useState(false)
+  const [ isFocus, setFocus ] = useState(false)
   const hoverStyle: React.CSSProperties = {
-    color: socialLink.hoverColor
+    color: socialLink.hoverColor,
   }
   const classProps = classNames(styles['icon'])
   return (
@@ -42,13 +43,22 @@ const createSocialLink = (index: number, socialLink: ISocialLink) => {
   )
 }
 
-const Profile: React.FC<IProps> = ({ className, profile, username, description, socialLinks = [], resume = '' }) => {
+const Profile: React.FC<IProps> = ({
+  className,
+  profile,
+  username = '',
+  description,
+  children,
+  socialLinks = [],
+  resume = '',
+}) => {
   return (
     <Layout className={className} direction={Direction.Row}>
       <Image className={styles['profile']} type={ImageType.Default} src={profile} />
       <div className={styles['description']}>
         <P>{username}</P>
         <P>{description}</P>
+        {children}
         <div className={styles['icons']}>
           {socialLinks.map((value, index) => {
             return createSocialLink(index, value)
