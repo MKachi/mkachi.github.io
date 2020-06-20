@@ -19,14 +19,14 @@ interface IProps {
   children?: React.ReactNode
 }
 
-const createSocialLink = (socialLink: ISocialLink) => {
+const createSocialLink = (index: number, socialLink: ISocialLink) => {
   const [isFocus, setFocus] = useState(false)
   const hoverStyle: React.CSSProperties = {
     color: socialLink.hoverColor
   }
   const classProps = classNames(styles['icon'])
   return (
-    <A to={socialLink.url} type={LinkType.Url}>
+    <A key={index} to={socialLink.url} type={LinkType.Url}>
       <span
         onPointerOver={() => {
           setFocus(true)
@@ -43,7 +43,7 @@ const createSocialLink = (socialLink: ISocialLink) => {
   )
 }
 
-const Profile: React.FC<IProps> = ({ className, profile, username, description, socialLinks, children, resume = '' }) => {
+const Profile: React.FC<IProps> = ({ className, profile, username, description, socialLinks = [], children, resume = '' }) => {
   return (
     <Layout className={className} direction={Direction.Row}>
       <Image className={styles['profile']} type={Type.Default} src={profile} />
@@ -51,8 +51,8 @@ const Profile: React.FC<IProps> = ({ className, profile, username, description, 
         <P text={username} />
         <P text={description} />
         <div className={styles['icons']}>
-          {socialLinks.map(value => {
-            return createSocialLink(value)
+          {socialLinks.map((value, index) => {
+            return createSocialLink(index, value)
           })}
         </div>
         {resume !== '' && (
