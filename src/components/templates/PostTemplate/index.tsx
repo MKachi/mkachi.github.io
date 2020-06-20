@@ -7,6 +7,7 @@ import { IPost, IPostContent } from '../../../models/post'
 import Layout, { Direction, Wrap } from '../../molecules/Layout'
 import Comment from '../../atoms/Comment'
 import { useLocation } from 'react-router-dom'
+import PostStyleTemplate from '../PostStyleTemplate/index'
 
 interface IProps {
   className?: string
@@ -30,7 +31,9 @@ const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
           {info.tags.map(tag => <Tag className={styles['tag']} key={tag} value={tag}>{`#${tag}`}</Tag>)}
         </Layout>
       </Layout>
-      <div className={styles['post-content']} dangerouslySetInnerHTML={{ __html: content.content }} />
+      <PostStyleTemplate>
+        <div dangerouslySetInnerHTML={{ __html: content.content }} />
+      </PostStyleTemplate>
       <Comment title={info.title} url={`https://mkachi.github.io${location.pathname}`} identifier={location.pathname} />
     </article>
   )
