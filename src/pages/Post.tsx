@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Frame, { FrameType } from '../components/molecules/Frame'
 import Footer from '../components/organisms/Footer'
 import PostTemplate from '../components/templates/PostTemplate'

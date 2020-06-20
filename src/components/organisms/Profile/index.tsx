@@ -3,10 +3,11 @@ import classNames from 'classnames'
 import styles from './style.module.css'
 
 import { FaGithub, FaFacebook, FaRss } from 'react-icons/fa'
+import { RiFileTextLine } from 'react-icons/ri'
 import Layout, { Direction } from '../../molecules/Layout'
 import Image, { Type } from '../../atoms/Image'
 import P from '../../atoms/P'
-import A, { LinkType } from '../../atoms/A/index'
+import A, { LinkType } from '../../atoms/A'
 
 interface IProps {
   className?: string
@@ -52,6 +53,10 @@ const Profile: React.FC<IProps> = ({
           {createSocialLink(<FaFacebook className={facebookIcon} />, facebook)}
           {createSocialLink(<FaRss className={rssIcon} />, rss)}
         </div>
+        <A className={styles['resume']} to={''} type={LinkType.Route}>
+          <span>resume</span>
+          <RiFileTextLine />
+        </A>
       </div>
     </Layout>
   )
