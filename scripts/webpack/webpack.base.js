@@ -33,7 +33,22 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
-    rules: [{
+    rules: [ //
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                auto: true
+              }
+            }
+          }
+        ]
+      }, {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /(node_modules)/,
         use: {
@@ -42,18 +57,6 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
           }
         }
-      }, {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true
-            }
-          }
-        ]
       }, {
         test: /\.html$/,
         use: [{
