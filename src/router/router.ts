@@ -1,5 +1,6 @@
 import Home from '../pages/Home'
 import Post from '../pages/Post'
+import Resume from '../pages/Resume'
 
 const Router = [
   {
@@ -9,6 +10,10 @@ const Router = [
   {
     path: '/post/:postKey/',
     component: Post
+  },
+  {
+    path: '/resume',
+    component: Resume
   }
 ]
 export default Router

@@ -30,15 +30,7 @@ const createSocialLink = (icon: JSX.Element, link: string) => {
   )
 }
 
-const Profile: React.FC<IProps> = ({
-  className,
-  profile,
-  username,
-  description,
-  github = '',
-  facebook = '',
-  rss = '',
-}) => {
+const Profile: React.FC<IProps> = ({ className, profile, username, description, github = '', facebook = '', rss = '' }) => {
   const githubIcon = classNames(styles['icon'], styles['github'])
   const facebookIcon = classNames(styles['icon'], styles['facebook'])
   const rssIcon = classNames(styles['icon'], styles['rss'])
@@ -53,7 +45,7 @@ const Profile: React.FC<IProps> = ({
           {createSocialLink(<FaFacebook className={facebookIcon} />, facebook)}
           {createSocialLink(<FaRss className={rssIcon} />, rss)}
         </div>
-        <A className={styles['resume']} to={''} type={LinkType.Route}>
+        <A className={styles['resume']} to={'/resume'} type={LinkType.Route}>
           <span>resume</span>
           <RiFileTextLine />
         </A>
