@@ -3,6 +3,7 @@
   background-color: transparent;
   padding: 7px 10px;
   transition: all 0.3s ease;
+  display: flex;
 }
 
 .default:hover {
