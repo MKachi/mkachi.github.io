@@ -16,7 +16,6 @@ interface IProps {
   description?: string
   socialLinks?: ISocialLink[]
   resume?: string
-  children?: React.ReactNode
 }
 
 const createSocialLink = (index: number, socialLink: ISocialLink) => {
@@ -43,7 +42,7 @@ const createSocialLink = (index: number, socialLink: ISocialLink) => {
   )
 }
 
-const Profile: React.FC<IProps> = ({ className, profile, username, description, socialLinks = [], children, resume = '' }) => {
+const Profile: React.FC<IProps> = ({ className, profile, username, description, socialLinks = [], resume = '' }) => {
   return (
     <Layout className={className} direction={Direction.Row}>
       <Image className={styles['profile']} type={Type.Default} src={profile} />
@@ -62,7 +61,6 @@ const Profile: React.FC<IProps> = ({ className, profile, username, description, 
           </A>
         )}
       </div>
-      {children}
     </Layout>
   )
 }
