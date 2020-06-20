@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 import { RiFileTextLine } from 'react-icons/ri'
 import Layout, { Direction } from '../../molecules/Layout'
-import Image, { Type } from '../../atoms/Image'
+import Image, { ImageType } from '../../atoms/Image'
 import P from '../../atoms/P'
 import A, { LinkType } from '../../atoms/A'
 import { ISocialLink } from '../../../models/socialLink'
@@ -45,7 +45,7 @@ const createSocialLink = (index: number, socialLink: ISocialLink) => {
 const Profile: React.FC<IProps> = ({ className, profile, username, description, socialLinks = [], resume = '' }) => {
   return (
     <Layout className={className} direction={Direction.Row}>
-      <Image className={styles['profile']} type={Type.Default} src={profile} />
+      <Image className={styles['profile']} type={ImageType.Default} src={profile} />
       <div className={styles['description']}>
         <P text={username} />
         <P text={description} />
