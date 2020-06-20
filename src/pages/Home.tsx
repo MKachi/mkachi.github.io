@@ -13,8 +13,10 @@ import SearchBox from '../components/organisms/SearchBox'
 
 import { IPost } from '../models/post'
 import { ITag } from '../models/tag'
+import { ISocialLink } from '../models/socialLink'
+import { FaGithub, FaFacebook, FaRss } from 'react-icons/fa'
 
-const menuItems = [ 'Archive', 'Tags' ]
+const menuItems = ['Archive', 'Tags']
 
 const isSelectedMenu = (menuName: string): boolean => {
   const { menuIndex } = useMenu()
@@ -54,13 +56,18 @@ const getSearchPosts = (searchText: string, posts: IPost[]) => {
 const showSearchList = (posts: IPost[], searchText: string, setSearchText: (value: string) => void) => {
   return (
     <React.Fragment>
-      <SearchBox
-        searchText={searchText}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value)}
-      />
+      <SearchBox searchText={searchText} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value)} />
       <PostListTemplate posts={getSearchPosts(searchText, posts)} />
     </React.Fragment>
   )
+}
+
+const createSocialLinks = (): ISocialLink[] => {
+  return [
+    { icon: <FaGithub />, url: 'https://github.com/mkachi', hoverColor: '#000000' },
+    { icon: <FaFacebook />, url: 'https://www.facebook.com/mkachi', hoverColor: '#4359ac' },
+    { icon: <FaRss />, url: 'https://www.facebook.com/mkachi', hoverColor: '#ff9900' }
+  ]
 }
 
 const Home = () => {
@@ -72,21 +79,14 @@ const Home = () => {
       <Frame type={FrameType.Container}>
         <Layout direction={Direction.Row} horizontalAlign={HorizontalAlign.SpaceAround}>
           <Profile
-            profile={
-              'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'
-            }
+            profile={'https://avatars3.githubusercontent.com/u/11822155?s=460&u=1baad602f7e934445410c001377b900a67271b22&v=4'}
             username={'M_Kachi'}
             description={'adsfadsfas'}
-            github={'https://github.com/mkachi'}
-            facebook={'https://www.facebook.com/mkachi'}
-            rss={'https://www.facebook.com/mkachi'}
+            socialLinks={createSocialLinks()}
+            resume={'/resume'}
           />
         </Layout>
-        {searchMode ? (
-          showSearchList(posts, searchText, (value: string) => setSearchText(value))
-        ) : (
-          showPostList(posts, tags)
-        )}
+        {searchMode ? showSearchList(posts, searchText, (value: string) => setSearchText(value)) : showPostList(posts, tags)}
       </Frame>
       <Footer />
     </Frame>

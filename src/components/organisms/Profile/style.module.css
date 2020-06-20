@@ -21,27 +21,10 @@
   transition: all 0.3s ease;
 }
 
-.rss:hover {
-  color: #ff9900;
-}
-
-.facebook:hover {
-  color: #4359ac;
-}
-
-.github:hover {
-  color: #000000;
-}
-
 .resume {
   font-size: 0.8em;
   padding: 1px 8px;
   border: 1px solid #2385d6;
   border-radius: 10px;
   align-items: center;
-  color: red;
-}
-
-.resume:hover {
-  text-decoration: none;
 }
