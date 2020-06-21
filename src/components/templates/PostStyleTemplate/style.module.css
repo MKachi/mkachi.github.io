@@ -1,6 +1,7 @@
 .default {
   color: #5e5e5e;
   font-size: 1.0em;
+  padding: 0px 10px;
 }
 
 .default h1,
@@ -11,7 +12,7 @@
 .default h6 {
   color: #3d3d3d;
   font-weight: 600;
-  padding-bottom: 0.8em;
+  padding-bottom: 0.3em;
 }
 
 .default h1 {
@@ -45,6 +46,11 @@
 
 .default ol,
 .default ul {
+  padding: 0.2em 0em 0em 2em;
+}
+
+.default ol ol,
+.default ul ul {
   padding: 0.2em 0em 0em 1em;
 }
 

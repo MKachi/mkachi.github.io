@@ -7,7 +7,7 @@ import { IPost, IPostContent } from '../../../models/post'
 import Layout, { Direction, Wrap } from '../../molecules/Layout'
 import Comment from '../../atoms/Comment'
 import { useLocation } from 'react-router-dom'
-import PostStyleTemplate from '../PostStyleTemplate/index'
+import PostStyleTemplate from '../PostStyleTemplate'
 
 interface IProps {
   className?: string
