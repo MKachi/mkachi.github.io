@@ -1,8 +1,8 @@
 import React from 'react'
+
 import Frame, { FrameType } from '../components/molecules/Frame'
-import Footer from '../components/organisms/Footer'
+import ResumeTemplate from '../components/templates/ResumeTemplate'
 import Helmet from 'react-helmet'
-import TopButton from '../components/organisms/TopButton'
 
 const Resume = () => {
   return (
@@ -10,9 +10,9 @@ const Resume = () => {
       <Helmet>
         <title>{'Resume'}</title>
       </Helmet>
-      <Frame type={FrameType.Container}>{/* content */}</Frame>
-      <Footer />
-      <TopButton />
+      <Frame type={FrameType.Container}>
+        <ResumeTemplate />
+      </Frame>
     </Frame>
   )
 }

@@ -1,0 +1,118 @@
+.default {
+  color: #5e5e5e;
+  font-size: 1.0em;
+  padding-bottom: 15px;
+}
+
+.profile {
+  margin: 20px auto 0px -10px;
+}
+
+.profile-name {
+  font-size: 22px;
+}
+
+.profile-image {
+  width: 130px;
+  height: 130px;
+}
+
+.profile-info {
+  margin: auto 0px 0px 0px;
+  padding-bottom: 10px;
+}
+
+.icon {
+  display: flex;
+  margin: 3px 3px auto 0px;
+}
+
+.description {
+  display: flex;
+  font-size: 0.8em;
+}
+
+.social-links {
+  font-size: 1.5em;
+}
+
+.social-icon {
+  margin-right: 5px;
+  color: #bbbbbb;
+  transition: all 0.3s ease;
+}
+
+.social-github:hover {
+  color: #000000;
+}
+
+.social-blog:hover {
+  color: #2be97a;
+}
+
+.resume-card {
+  border: 1px solid #eeeeee;
+  background-color: #f9fafc;
+  border-radius: 20px;
+  padding: 20px 20px;
+}
+
+.default h2 {
+  padding: 24px 0px;
+}
+
+.resume-card h3 {
+  color: #383838;
+  padding: 3px 0px;
+}
+
+.resume-card ol,
+.resume-card ul {
+  padding: 0.2em 0em 0em 2em;
+}
+
+.resume-card ol ol,
+.resume-card ul ul {
+  padding: 0.2em 0em 0em 1em;
+  text-decoration: none;
+}
+
+.resume-card li {
+  padding: 5px 0px;
+}
+
+.resume-section {
+  margin-bottom: 24px;
+}
+
+.resume-table {
+  display: table;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.resume-table th {
+  color: #2b2b2b;
+  font-weight: 600;
+}
+
+.resume-side-header {
+  text-align: left;
+  width: 120px;
+}
+
+.resume-table td {
+  display: table-cell;
+  border: 0px;
+  table-layout: fixed;
+}
+
+.resume-table-padding {
+  padding-right: 13px;
+  padding-bottom: 9px;
+}
+
+.table-side-header {
+  width: 130px;
+}
