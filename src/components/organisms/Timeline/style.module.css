@@ -3,7 +3,6 @@
 }
 
 .line {
-  /* margin: 0px auto; */
   height: 100%;
   width: 4px;
   background-color: #000000;
@@ -11,7 +10,7 @@
 }
 
 .comments {
-  padding-top: 50px;
+  padding-top: 30px;
   margin-left: -17px;
 }
 
