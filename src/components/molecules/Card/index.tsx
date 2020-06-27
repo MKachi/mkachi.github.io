@@ -15,7 +15,7 @@ interface IProps {
 
 const Card: React.FC<IProps> = ({ className, children, type = CardType.Post }) => {
   const classProps = classNames(className, styles[type])
-  return <section className={classProps}>{children}</section>
+  return <article className={classProps}>{children}</article>
 }
 
 export default Card
