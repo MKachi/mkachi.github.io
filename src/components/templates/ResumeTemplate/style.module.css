@@ -50,35 +50,14 @@
   color: #2be97a;
 }
 
-.resume-card {
-  border: 1px solid #eeeeee;
-  background-color: #f9fafc;
-  border-radius: 20px;
-  padding: 20px 20px;
-}
-
 .default h2 {
+  color: #1b1b1b;
   padding: 24px 0px;
 }
 
 .resume-card h3 {
   color: #383838;
   padding: 3px 0px;
-}
-
-.resume-card ol,
-.resume-card ul {
-  padding: 0.2em 0em 0em 2em;
-}
-
-.resume-card ol ol,
-.resume-card ul ul {
-  padding: 0.2em 0em 0em 1em;
-  text-decoration: none;
-}
-
-.resume-card li {
-  padding: 5px 0px;
 }
 
 .resume-section {

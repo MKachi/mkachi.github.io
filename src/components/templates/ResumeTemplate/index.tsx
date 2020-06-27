@@ -3,12 +3,17 @@ import classNames from 'classnames'
 import styles from './style.module.css'
 
 import { MdMailOutline } from 'react-icons/md'
+import { AiFillBank } from 'react-icons/ai'
 
 import Layout, { Direction, VerticalAlign } from '../../molecules/Layout'
 import Image from '../../atoms/Image'
 import P from '../../atoms/P'
 import { FaBloggerB, FaGithub } from 'react-icons/fa'
 import A from '../../atoms/A'
+import Card, { CardType } from '../../molecules/Card'
+import ListGroup, { ListType } from '../../atoms/ListGroup'
+import Timeline from '../../organisms/Timeline'
+import TimeComment from '../../organisms/TimeComment'
 
 interface IProps {
   className?: string
@@ -44,7 +49,7 @@ const Resume: React.FC<IProps> = ({ className }) => {
       </Layout>
       <Layout direction={Direction.Column}>
         <h2>{'학력 및 경력'}</h2>
-        <article className={styles['resume-card']}>
+        <Card type={CardType.Resume}>
           <table className={styles['resume-table']}>
             <thead>
               <tr>
@@ -67,80 +72,84 @@ const Resume: React.FC<IProps> = ({ className }) => {
               </tr>
             </tbody>
           </table>
-        </article>
+        </Card>
 
         <h2>{'역량'}</h2>
-        <article className={styles['resume-card']}>
+        <Card type={CardType.Resume}>
           <section className={styles['resume-section']}>
             <h3>{'소스 코드의 형상 관리를 중요하게 생각합니다'}</h3>
-            <ul>
+            <ListGroup type={ListType.Symbol}>
               <li>{'GitLab을 구축하여 기존 프로젝트들과 신규 프로젝트에 형상 관리 도입'}</li>
               <li>{'회사 작업 특성에 맞는 Branching 관리 전략 구축'}</li>
               <li>{'사내 Workflow 구축 및 문서화'}</li>
-            </ul>
+            </ListGroup>
           </section>
 
           <section className={styles['resume-section']}>
             <h3>{'나 혼자 성장하는 것이 아닌 팀과의 성장을 중요하게 생각합니다'}</h3>
-            <ul>
+            <ListGroup type={ListType.Symbol}>
               <li>{'Git을 모르는 개발자들을 위한 사내 교육'}</li>
               <li>{'ReactJS 사내 스터디 운영'}</li>
-            </ul>
+            </ListGroup>
           </section>
 
           <section className={styles['resume-section']}>
             <h3>{'다른 사람의 코드를 빠르게 읽고 활용할 수 있습니다'}</h3>
-            <ul>
+            <ListGroup type={ListType.Symbol}>
               <li>{'고신대학교복음병원 인터페이스 유지 보수 및 신규 개발'}</li>
               <li>{'C19Korea (COVID-19 검사 자동 판정 솔루션) 개발 지원'}</li>
-            </ul>
+            </ListGroup>
           </section>
 
           <section>
             <h3>{'필요한 기능을 직접 구현할 수 있습니다'}</h3>
-            <ul>
+            <ListGroup type={ListType.Symbol}>
               <li>{'수원삼성전기부속의원, 서초삼성부속의원 Code128 형식의 바코드 생성 모듈 개발'}</li>
               <li>{'사내 WPF / MVVM Pattern Library 개발'}</li>
               <li>{'회사 License 모듈 개발'}</li>
               <li>{'NihonkoDen Patient Monitor 정보 수집 솔루션 개발'}</li>
               <li>{'한양대학교서울병원 인터페이스 RESTful API 통신 모듈 개발'}</li>
-            </ul>
+            </ListGroup>
           </section>
-        </article>
+        </Card>
 
         <h2>{'프로젝트 및 활동'}</h2>
-        <article className={styles['resume-card']}>
-          <table className={styles['resume-table']}>
-            <thead>
-              <tr>
-                <th className={styles['table-side-header']} />
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className={styles['resume-table-padding']}>{'20.06 ~ 진행중'}</td>
-                <td className={styles['resume-table-padding']}>{'한양대학교서울병원 인터페이스 개발 지원'}</td>
-              </tr>
-              <tr>
-                <td className={styles['resume-table-padding']}>{'20.04'}</td>
-                <td className={styles['resume-table-padding']}>{'COVID-19 검사 자동 판정 솔루션 개발 지원'}</td>
-              </tr>
-              <tr>
-                <td className={styles['resume-table-padding']}>{'19.03'}</td>
-                <td className={styles['resume-table-padding']}>{'수원삼성전기부속의원 바코드 프린트 인터페이스 개발'}</td>
-              </tr>
-              <tr>
-                <td className={styles['resume-table-padding']}>{'19.10 ~ 19.12'}</td>
-                <td className={styles['resume-table-padding']}>{'NihonkoDen Patient Monitor 정보 수집 솔루션 개발'}</td>
-              </tr>
-              <tr>
-                <td>{'18.11 ~ 진행중'}</td>
-                <td>{'고신대학교복음병원 인터페이스 유지 보수 및 신규 개발'}</td>
-              </tr>
-            </tbody>
-          </table>
-        </article>
+        <Timeline>
+          <TimeComment>
+            <P>{'2020.06 ~ 진행중'}</P>
+            <P>{'한양대학교서울병원, 한양대학교구리병원 인터페이스 개발 지원'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2020.04 ~ 2020.04'}</P>
+            <P>{'COVID-19 검사 자동 판정 솔루션 개발 지원'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2019.03 ~ 2020.03'}</P>
+            <P>{'수원삼성전기부속의원 바코드 프린트 인터페이스 개발'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2019.12 ~ 2020.01'}</P>
+            <P>{'서초삼성부속의원 바코드 프린트 인터페이스 개발'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2019.12 ~ 2020.01'}</P>
+            <P>{'서초삼성부속의원 바코드 프린트 인터페이스 개발'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2019.10 ~ 2019.12'}</P>
+            <P>{'NihonkoDen Patient Monitor 정보 수집 솔루션 개발'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2018.11 ~ 진행중'}</P>
+            <P>{'고신대학교복음병원 인터페이스 유지 보수 및 신규 개발'}</P>
+          </TimeComment>
+        </Timeline>
       </Layout>
     </Layout>
   )
