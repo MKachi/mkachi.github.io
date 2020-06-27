@@ -2,8 +2,8 @@ import React from 'react'
 import classNames from 'classnames'
 import styles from './style.module.css'
 
+import dayjs from 'dayjs'
 import { MdMailOutline } from 'react-icons/md'
-import { AiFillBank } from 'react-icons/ai'
 
 import Layout, { Direction, VerticalAlign } from '../../molecules/Layout'
 import Image from '../../atoms/Image'
@@ -19,10 +19,18 @@ interface IProps {
   className?: string
 }
 
+const getArmyDiffDay = () => {
+  const today = dayjs().locale('Asia/Seoul')
+  const diffTime = today.diff('2021-09-26', 'day')
+  return diffTime * -1
+}
+
 const Resume: React.FC<IProps> = ({ className }) => {
   const github = classNames(styles['social-icon'], styles['social-github'])
   const blog = classNames(styles['social-icon'], styles['social-blog'])
   const classProps = classNames(className, styles['default'])
+
+  const armyDiff = getArmyDiffDay()
 
   return (
     <Layout className={classProps} direction={Direction.Column}>
@@ -63,8 +71,8 @@ const Resume: React.FC<IProps> = ({ className }) => {
                 <td className={styles['resume-table-padding']}>{'에이씨케이'}</td>
               </tr>
               <tr>
-                <td className={styles['resume-table-padding']}>{'17.03 ~ 휴학'}</td>
-                <td className={styles['resume-table-padding']}>{'성공회대학교 컴퓨터공학과'}</td>
+                <td className={styles['resume-table-padding']}>{'17.03 ~ 휴학중'}</td>
+                <td className={styles['resume-table-padding']}>{'성공회대학교 컴퓨터공학과 (산업기능요원근무로 휴학)'}</td>
               </tr>
               <tr>
                 <td>{'14.03 ~ 17.02'}</td>
@@ -143,6 +151,11 @@ const Resume: React.FC<IProps> = ({ className }) => {
           <TimeComment>
             <P>{'2019.10 ~ 2019.12'}</P>
             <P>{'NihonkoDen Patient Monitor 정보 수집 솔루션 개발'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2019.10.27'}</P>
+            <P>{`현역 산업기능요원 편입 (남은 근무 일수 : ${armyDiff}일)`}</P>
           </TimeComment>
 
           <TimeComment>
