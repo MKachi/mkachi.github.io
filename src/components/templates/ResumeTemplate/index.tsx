@@ -134,7 +134,7 @@ const Resume: React.FC<IProps> = ({ className }) => {
           </TimeComment>
 
           <TimeComment>
-            <P>{'2019.03 ~ 2020.03'}</P>
+            <P>{'2020.03 ~ 2020.03'}</P>
             <P>{'수원삼성전기부속의원 바코드 프린트 인터페이스 개발'}</P>
           </TimeComment>
 
@@ -154,13 +154,23 @@ const Resume: React.FC<IProps> = ({ className }) => {
           </TimeComment>
 
           <TimeComment>
-            <P>{'2019.10.27'}</P>
+            <P>{'2018.11 ~ 진행중'}</P>
+            <P>{'고신대학교복음병원 인터페이스 유지 보수 및 신규 개발'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2018.11.27'}</P>
             <P>{`현역 산업기능요원 편입 (남은 근무 일수 : ${armyDiff}일)`}</P>
           </TimeComment>
 
           <TimeComment>
-            <P>{'2018.11 ~ 진행중'}</P>
-            <P>{'고신대학교복음병원 인터페이스 유지 보수 및 신규 개발'}</P>
+            <P>{'2018.11.20'}</P>
+            <P>{'에이씨케이 입사'}</P>
+          </TimeComment>
+
+          <TimeComment>
+            <P>{'2017.08 ~ 2017.12'}</P>
+            <P>{'소프트웨어 마에스트로 8기 수료'}</P>
           </TimeComment>
         </Timeline>
       </Layout>
