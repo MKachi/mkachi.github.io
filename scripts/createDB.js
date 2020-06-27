@@ -1,7 +1,5 @@
 'use strict'
 
-const config = require('./config')
-
 const markdown = require('markdown-it')
 const fs = require('fs')
 const util = require('util')
@@ -11,17 +9,25 @@ const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 const stat = util.promisify(fs.stat)
 
-const getFiles = async (searchPath) => {
+const getFileFormat = (filename) => {
+  var i = filename.lastIndexOf('.');
+  return (i < 0) ? '' : filename.substr(i);
+}
+
+const getPosts = async searchPath => {
   const result = []
-  const searchFiles = async (path) => {
-    const items = await readDir(path)
+  const searchFiles = async path => {
+    const items = await readDir(path, 'utf-8')
     for (let i = 0; i < items.length; ++i) {
       const subPath = path + '/' + items[i]
       const stats = await stat(subPath)
       if (stats.isDirectory()) {
         await searchFiles(subPath)
       } else {
-        result.push(subPath)
+        const format = getFileFormat(subPath)
+        if (format === '.md' || format === '.markdown') {
+          result.push(subPath)
+        }
       }
     }
   }
@@ -29,12 +35,12 @@ const getFiles = async (searchPath) => {
   return result
 }
 
-const parsePost = async (filePath) => {
+const parsePost = async filePath => {
   const result = {
     date: '',
     time: '',
     title: '',
-    tags: null,
+    tags: [],
     content: '',
   }
   const data = await readFile(filePath, 'utf-8')
@@ -56,17 +62,20 @@ const parsePost = async (filePath) => {
     let value = line.substring(endIndex + 1).trim()
     if (key === 'tags') {
       const labels = value.substring(1, value.length - 1).trim().split(',')
-      value = []
       for (let j = 0; j < labels.length; ++j) {
-        value.push(labels[j].trim().toLowerCase())
+        result[key].push(labels[j].trim().toLowerCase())
       }
+    } else {
+      result[key] = value
     }
-    result[key] = value
   }
-  result.content = data.replace(header, '').replace(/<iframe/gi, '<c-youtube class="iframe-container"><iframe').replace(/iframe>/gi, 'iframe></c-youtube>')
+  result.content = data
+    .replace(header, '')
+    .replace(/<iframe/gi, '<c-youtube class="iframe-container"><iframe')
+    .replace(/iframe>/gi, 'iframe></c-youtube>')
   return result
 }
-const loadPosts = async (postPath) => {
+const loadPosts = async postPath => {
   const list = []
   const contents = {}
 
@@ -75,7 +84,7 @@ const loadPosts = async (postPath) => {
     linkify: true,
     typographer: true,
   })
-  const markdowns = await getFiles(postPath)
+  const markdowns = await getPosts(postPath)
   for (let i = 0; i < markdowns.length; ++i) {
     const post = await parsePost(markdowns[i])
     const key = `${post.date}-${post.title.replace(/ /gi, '-')}`
@@ -89,7 +98,7 @@ const loadPosts = async (postPath) => {
     })
     contents[key] = {
       index: i,
-      content
+      content,
     }
   }
   list.sort((a, b) => {
@@ -114,18 +123,18 @@ const loadPosts = async (postPath) => {
   }
 }
 
-const parseTags = async (list) => {
+const parseTags = async list => {
   const result = []
   const tagMap = new Map()
 
-  list.forEach(post => {
+  list.forEach((post) => {
     const tags = post.tags
-    tags.forEach((tag) => {
+    tags.forEach(tag => {
       if (!tagMap.has(tag)) {
         tagMap.set(tag, result.length)
         result.push({
           name: tag.toLowerCase(),
-          count: 0
+          count: 0,
         })
       }
       const index = tagMap.get(tag)
@@ -137,13 +146,13 @@ const parseTags = async (list) => {
 
 const createDB = async () => {
   try {
-    const post = await loadPosts(config.posts)
+    const post = await loadPosts('./posts')
     const tags = await parseTags(post.list)
     const json = {
       post,
-      tags
+      tags,
     }
-    await writeFile(config.src + '/database.json', JSON.stringify(json))
+    await writeFile('./database.json', JSON.stringify(json), 'utf-8')
   } catch (ex) {
     console.log(ex)
   }
