@@ -1,0 +1,26 @@
+.symbol {
+  display: flex;
+  width: 17px;
+  height: 17px;
+  background-color: #000000;
+  border-radius: 100%;
+  padding: 3px;
+}
+
+.symbol span {
+  margin: auto;
+  width: 0.7em;
+  height: 0.7em;
+  background-color: #ffffff;
+  border-radius: 100%;
+}
+
+.content {
+  margin: 0px 0px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eeeeee;
+  background-color: #f9fafc;
+  border-radius: 20px;
+  padding: 20px;
+}

@@ -1,0 +1,32 @@
+.timeline {
+  display: flex;
+}
+
+.line {
+  /* margin: 0px auto; */
+  height: 100%;
+  width: 4px;
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.comments {
+  padding-top: 50px;
+  margin-left: -17px;
+}
+
+.symbol {
+  display: flex;
+  width: 17px;
+  height: 17px;
+  background-color: #000000;
+  border-radius: 100%;
+  margin-top: -3px;
+  padding: 3px;
+}
+
+.symbol>* {
+  margin: auto;
+  font-size: 0.75em;
+  color: #ffffff;
+}
