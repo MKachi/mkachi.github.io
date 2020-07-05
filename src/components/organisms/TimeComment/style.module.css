@@ -24,3 +24,27 @@
   border-radius: 20px;
   padding: 20px;
 }
+
+.icon {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  margin: auto 10px auto 0px;
+}
+
+.timestamp {
+  color: #a7a7a7;
+  font-size: 0.8em;
+  padding-bottom: 10px;
+}
+
+.position {
+  color: #a7a7a7;
+  font-size: 0.8em;
+  padding-bottom: 5px;
+}
+
+.title {
+  font-size: 1em;
+  /* padding-bottom: 7px; */
+}

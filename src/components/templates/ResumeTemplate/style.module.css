@@ -4,6 +4,12 @@
   padding-bottom: 15px;
 }
 
+.timestamp {
+  color: #a7a7a7;
+  font-size: 0.8em;
+  padding-bottom: 10px;
+}
+
 .profile {
   margin: 20px auto 0px -10px;
 }
@@ -94,4 +100,21 @@
 
 .table-side-header {
   width: 130px;
+}
+
+.icons {
+  padding-top: 7px;
+}
+
+.project-icon {
+  width: 64px;
+  height: 64px;
+  margin: auto 10px auto 0px;
+  display: flex;
+}
+
+.project-pos {
+  color: #a7a7a7;
+  font-size: 0.8em;
+  padding-bottom: 5px;
 }
