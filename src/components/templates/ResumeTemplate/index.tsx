@@ -159,7 +159,7 @@ const Resume: React.FC<IProps> = ({ className }) => {
           <TimeComment
             timestamp={'2020.03 ~ 2020.03'}
             position={'Main Programmer'}
-            icon={site.samsung}
+            icon={project.barcode}
             title={'수원삼성전기부속의원 바코드 프린트 인터페이스 개발'}
           >
             <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
@@ -172,7 +172,7 @@ const Resume: React.FC<IProps> = ({ className }) => {
           <TimeComment
             timestamp={'2019.12 ~ 2020.01'}
             position={'Main Programmer'}
-            icon={site.samsung}
+            icon={project.barcode}
             title={'서초삼성부속의원 바코드 프린트 인터페이스 개발'}
           >
             <Layout direction={Direction.Row} wrap={Wrap.Wrap}>

@@ -25,11 +25,11 @@ import hl7 from '../../../assets/tech-icons/hl7.png'
 import ggs from '../../../assets/project-icons/ggs.jpg'
 import murevo from '../../../assets/project-icons/murevo.png'
 import covid from '../../../assets/project-icons/covid.png'
+import barcode from '../../../assets/project-icons/barcode.png'
 
 // Site
 import ack from '../../../assets/site-icons/ack.png'
 import hanyang from '../../../assets/site-icons/hanyang.png'
-import samsung from '../../../assets/site-icons/samsung.png'
 import kosin from '../../../assets/site-icons/kosin.png'
 import swm from '../../../assets/site-icons/swm.png'
 import army from '../../../assets/site-icons/army.png'
@@ -65,13 +65,13 @@ const protocol = {
 const project = {
   ggs,
   murevo,
-  covid
+  covid,
+  barcode
 }
 
 const site = {
   ack,
   hanyang,
-  samsung,
   kosin,
   swm,
   army,
