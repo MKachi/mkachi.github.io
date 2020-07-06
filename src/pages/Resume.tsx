@@ -3,6 +3,7 @@ import React from 'react'
 import Frame, { FrameType } from '../components/molecules/Frame'
 import ResumeTemplate from '../components/templates/ResumeTemplate'
 import Helmet from 'react-helmet'
+import Footer from '../components/organisms/Footer'
 
 const Resume = () => {
   return (
@@ -13,6 +14,7 @@ const Resume = () => {
       <Frame type={FrameType.Container}>
         <ResumeTemplate />
       </Frame>
+      <Footer />
     </Frame>
   )
 }
