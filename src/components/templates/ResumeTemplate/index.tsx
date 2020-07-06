@@ -151,29 +151,15 @@ const Resume: React.FC<IProps> = ({ className }) => {
               <IconLabel icon={library.redux} text={'Redux'} />
               <IconLabel icon={lang.typescript} text={'Typescript'} />
               <IconLabel icon={framework.devextreme} text={'DevExtreme'} />
-              <IconLabel icon={library.postcss} text={'PostCSS'} />
               <IconLabel icon={library.tailwind} text={'Tailwind'} />
             </Layout>
           </TimeComment>
 
           <TimeComment
-            timestamp={'2020.03 ~ 2020.03'}
+            timestamp={'2019.12 ~ 2020.03'}
             position={'Main Programmer'}
             icon={project.barcode}
-            title={'수원삼성전기부속의원 바코드 프린트 인터페이스 개발'}
-          >
-            <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
-              <IconLabel icon={lang.csharp} text={'C#'} />
-              <IconLabel icon={framework.wpf} text={'WPF'} />
-              <IconLabel icon={framework.devextreme} text={'DevExpress'} />
-            </Layout>
-          </TimeComment>
-
-          <TimeComment
-            timestamp={'2019.12 ~ 2020.01'}
-            position={'Main Programmer'}
-            icon={project.barcode}
-            title={'서초삼성부속의원 바코드 프린트 인터페이스 개발'}
+            title={'서초삼성부속의원, 수원삼성전기부속의원 바코드 프린트 인터페이스 개발'}
           >
             <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
               <IconLabel icon={lang.csharp} text={'C#'} />
@@ -208,16 +194,24 @@ const Resume: React.FC<IProps> = ({ className }) => {
             </Layout>
           </TimeComment>
 
-          <TimeComment timestamp={'2018.11.27'} icon={site.army} title={`현역 산업기능요원 편입 (남은 근무 일수 : ${armyDiff}일)`} />
+          <TimeComment timestamp={'2018.11.27'} icon={site.army} title={'현역 산업기능요원 편입'}>
+            <P>{`남은 근무 일수 : ${armyDiff}`}</P>
+          </TimeComment>
           <TimeComment timestamp={'2018.11.20'} icon={site.ack} position={'업무혁신팀'} title={'에이씨케이 입사'} />
 
           <TimeComment
             timestamp={'2018.07 ~ 2018.09'}
             icon={project.ggs}
             position={'Main Programmer'}
-            title={'할만한 클릭 미연시 개발'}
+            title={'할만한 클릭 미연시'}
           >
-            <A to={'https://youtu.be/RyYPtO4Y_Us'}>{'https://youtu.be/RyYPtO4Y_Us'}</A>
+            <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
+              <A to={'https://youtu.be/RyYPtO4Y_Us'}>
+                <IconLabel icon={site.youtube} text={'Play 영상'} />
+              </A>
+              <IconLabel icon={lang.csharp} text={'C#'} />
+              <IconLabel icon={framework.unity} text={'Unity'} />
+            </Layout>
           </TimeComment>
 
           <TimeComment
@@ -227,13 +221,21 @@ const Resume: React.FC<IProps> = ({ className }) => {
             title={'소프트웨어 마에스트로 8기 수료'}
           />
 
+          <TimeComment timestamp={'2017.03 ~ 휴학'} position={'컴퓨터공학과 17기'} icon={site.skhu} title={'성공회대학교 입학'} />
+
           <TimeComment
             timestamp={'2016.07 ~ 2016.08'}
             icon={project.murevo}
             position={'UI Programmer'}
-            title={'리듬게임 MuRevo 개발'}
+            title={'MuRevo'}
           >
-            <A to={'https://youtu.be/mC42LI4iLUo'}>{'https://youtu.be/mC42LI4iLUo'}</A>
+            <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
+              <A to={'https://youtu.be/mC42LI4iLUo'}>
+                <IconLabel icon={site.youtube} text={'Play 영상'} />
+              </A>
+              <IconLabel icon={lang.csharp} text={'C#'} />
+              <IconLabel icon={framework.unity} text={'Unity'} />
+            </Layout>
           </TimeComment>
         </Timeline>
       </Layout>

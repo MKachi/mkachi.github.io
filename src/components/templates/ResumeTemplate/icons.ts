@@ -1,39 +1,40 @@
 // Language
-import csharp from '../../../assets/tech-icons/csharp.png'
-import vbnet from '../../../assets/tech-icons/vbnet.png'
-import typescript from '../../../assets/tech-icons/typescript.png'
-import cpp from '../../../assets/tech-icons/cpp.png'
+import csharp from '../../../assets/icons/csharp.png'
+import vbnet from '../../../assets/icons/vbnet.png'
+import typescript from '../../../assets/icons/typescript.png'
+import cpp from '../../../assets/icons/cpp.png'
 
 // Framework
-import devextreme from '../../../assets/tech-icons/devextreme.png'
-import react from '../../../assets/tech-icons/react.png'
-import unity from '../../../assets/tech-icons/unity.png'
-import cocos2dx from '../../../assets/tech-icons/cocos2dx.png'
-import wpf from '../../../assets/tech-icons/wpf.png'
+import devextreme from '../../../assets/icons/devextreme.png'
+import react from '../../../assets/icons/react.png'
+import unity from '../../../assets/icons/unity.png'
+import cocos2dx from '../../../assets/icons/cocos2dx.png'
+import wpf from '../../../assets/icons/wpf.png'
 
 // Library
-import redux from '../../../assets/tech-icons/redux.png'
-import tailwind from '../../../assets/tech-icons/tailwindcss.png'
-import postcss from '../../../assets/tech-icons/postcss.png'
+import redux from '../../../assets/icons/redux.png'
+import tailwind from '../../../assets/icons/tailwindcss.png'
 
 // Protocol
-import udp from '../../../assets/tech-icons/udp.png'
-import astm from '../../../assets/tech-icons/astm.png'
-import hl7 from '../../../assets/tech-icons/hl7.png'
+import udp from '../../../assets/icons/udp.png'
+import astm from '../../../assets/icons/astm.png'
+import hl7 from '../../../assets/icons/hl7.png'
 
 // Project
-import ggs from '../../../assets/project-icons/ggs.jpg'
-import murevo from '../../../assets/project-icons/murevo.png'
-import covid from '../../../assets/project-icons/covid.png'
-import barcode from '../../../assets/project-icons/barcode.png'
+import ggs from '../../../assets/icons/ggs.jpg'
+import murevo from '../../../assets/icons/murevo.png'
+import covid from '../../../assets/icons/covid.png'
+import barcode from '../../../assets/icons/barcode.png'
 
 // Site
-import ack from '../../../assets/site-icons/ack.png'
-import hanyang from '../../../assets/site-icons/hanyang.png'
-import kosin from '../../../assets/site-icons/kosin.png'
-import swm from '../../../assets/site-icons/swm.png'
-import army from '../../../assets/site-icons/army.png'
-import nihonkoden from '../../../assets/site-icons/nihonkoden.png'
+import ack from '../../../assets/icons/ack.png'
+import hanyang from '../../../assets/icons/hanyang.png'
+import kosin from '../../../assets/icons/kosin.png'
+import swm from '../../../assets/icons/swm.png'
+import army from '../../../assets/icons/army.png'
+import nihonkoden from '../../../assets/icons/nihonkoden.png'
+import skhu from '../../../assets/icons/skhu.png'
+import youtube from '../../../assets/icons/youtube.png'
 
 const lang = {
   csharp,
@@ -52,8 +53,7 @@ const framework = {
 
 const library = {
   redux,
-  tailwind,
-  postcss
+  tailwind
 }
 
 const protocol = {
@@ -75,7 +75,9 @@ const site = {
   kosin,
   swm,
   army,
-  nihonkoden
+  nihonkoden,
+  skhu,
+  youtube
 }
 
 export { lang, framework, library, protocol, project, site }
