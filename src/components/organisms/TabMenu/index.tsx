@@ -33,7 +33,7 @@ const TabMenu: React.FC<IProps> = ({ className, items }) => {
         return createMenuItem(value, index === menuIndex, () => setMenuIndex(index))
       })}
       <Button className={styles['search-button']} onClick={() => setSearchMode(true)}>
-        <FaSearch />
+        <FaSearch className={styles['search-icon']} />
       </Button>
     </Layout>
   )

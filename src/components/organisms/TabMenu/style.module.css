@@ -31,3 +31,8 @@
 .search-button {
   margin: 0px 0px 0px auto;
 }
+
+.search-icon {
+  display: flex;
+  margin: auto;
+}
