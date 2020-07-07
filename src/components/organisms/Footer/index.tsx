@@ -13,9 +13,7 @@ const Footer: React.FC<IProps> = ({ className }) => {
   const classProps = classNames(className, styles['default'])
   return (
     <footer className={classProps}>
-      <P>{'mkachi. All rights reserved'}</P>
-      <IoIosCube className={styles.symbol} />
-      <P>{'Powered by github pages'}</P>
+      <P className={styles['text']}>{'Copyright Ⓒ 2020 mkachi. All rights reserved.'}</P>
     </footer>
   )
 }
