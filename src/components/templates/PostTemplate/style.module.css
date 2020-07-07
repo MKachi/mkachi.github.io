@@ -29,3 +29,15 @@
 .tag {
   margin: 0px 2px 2px 0px;
 }
+
+.back-button {
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  margin-right: 3px;
+  padding: 3px;
+}
+
+.icon {
+  margin-right: 3px;
+}

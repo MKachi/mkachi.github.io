@@ -6,8 +6,10 @@ import Tag from '../../atoms/Tag'
 import { IPost, IPostContent } from '../../../models/post'
 import Layout, { Direction, Wrap } from '../../molecules/Layout'
 import Comment from '../../atoms/Comment'
-import { useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import PostStyleTemplate from '../PostStyleTemplate'
+import Button from '../../atoms/Button'
+import { AiOutlineUnorderedList } from 'react-icons/ai'
 
 interface IProps {
   className?: string
@@ -16,19 +18,28 @@ interface IProps {
 }
 
 const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
-  const location = useLocation()
+  const history = useHistory()
+  const location = history.location
 
   const classProps = classNames(className, styles['default'])
   return (
     <article className={classProps}>
       <Layout className={styles['post-header']} direction={Direction.Column}>
+        <Layout direction={Direction.Row}>
+          <Button className={styles['back-button']} onClick={() => history.goBack()}>
+            <AiOutlineUnorderedList className={styles['icon']} />
+            <span>{'목록'}</span>
+          </Button>
+        </Layout>
         <h1 className={styles['post-title']}>{info.title}</h1>
         <Layout className={styles['post-time']} direction={Direction.Row}>
           <span>{info.date}</span>
           <span>{info.time}</span>
         </Layout>
         <Layout className={styles['post-tags']} direction={Direction.Row} wrap={Wrap.Wrap}>
-          {info.tags.map(tag => <Tag className={styles['tag']} key={tag} value={tag}>{`#${tag}`}</Tag>)}
+          {info.tags.map(tag => (
+            <Tag className={styles['tag']} key={tag} value={tag}>{`#${tag}`}</Tag>
+          ))}
         </Layout>
       </Layout>
       <PostStyleTemplate>
