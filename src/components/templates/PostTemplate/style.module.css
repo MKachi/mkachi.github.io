@@ -1,5 +1,5 @@
 .default {
-  padding: 40px 0px;
+  padding: 20px 0px 40px 0px;
 }
 
 .post-header {
@@ -33,7 +33,7 @@
 .back-button {
   justify-content: center;
   align-items: center;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-right: 3px;
   padding: 3px;
 }
