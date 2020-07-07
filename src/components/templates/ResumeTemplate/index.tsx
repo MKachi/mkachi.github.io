@@ -209,6 +209,9 @@ const Resume: React.FC<IProps> = ({ className }) => {
               <A to={'https://youtu.be/RyYPtO4Y_Us'}>
                 <IconLabel icon={site.youtube} text={'Play 영상'} />
               </A>
+              <A to={'https://play.google.com/store/apps/details?id=com.kachi.goodpgs'}>
+                <IconLabel icon={site.playstore} text={'PlayStore'} />
+              </A>
               <IconLabel icon={lang.csharp} text={'C#'} />
               <IconLabel icon={framework.unity} text={'Unity'} />
             </Layout>
@@ -232,6 +235,9 @@ const Resume: React.FC<IProps> = ({ className }) => {
             <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
               <A to={'https://youtu.be/mC42LI4iLUo'}>
                 <IconLabel icon={site.youtube} text={'Play 영상'} />
+              </A>
+              <A to={'https://play.google.com/store/apps/details?id=com.ako.murevo'}>
+                <IconLabel icon={site.playstore} text={'PlayStore'} />
               </A>
               <IconLabel icon={lang.csharp} text={'C#'} />
               <IconLabel icon={framework.unity} text={'Unity'} />

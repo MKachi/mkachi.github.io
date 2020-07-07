@@ -35,6 +35,7 @@ import army from '../../../assets/icons/army.png'
 import nihonkoden from '../../../assets/icons/nihonkoden.png'
 import skhu from '../../../assets/icons/skhu.png'
 import youtube from '../../../assets/icons/youtube.png'
+import playstore from '../../../assets/icons/playstore.png'
 
 const lang = {
   csharp,
@@ -77,7 +78,8 @@ const site = {
   army,
   nihonkoden,
   skhu,
-  youtube
+  youtube,
+  playstore
 }
 
 export { lang, framework, library, protocol, project, site }
