@@ -171,8 +171,8 @@ const Resume: React.FC<IProps> = ({ className }) => {
           <TimeComment
             timestamp={'2019.10 ~ 2019.12'}
             position={'Main Programmer'}
-            icon={site.nihonkoden}
-            title={'NihonkoDen Patient Monitor 정보 수집 솔루션 개발'}
+            icon={project.patientMonitor}
+            title={'Patient Monitor 정보 수집 솔루션 개발'}
           >
             <Layout direction={Direction.Row} wrap={Wrap.Wrap}>
               <IconLabel icon={lang.csharp} text={'C#'} />

@@ -25,6 +25,7 @@ import ggs from '../../../assets/icons/ggs.jpg'
 import murevo from '../../../assets/icons/murevo.png'
 import covid from '../../../assets/icons/covid.png'
 import barcode from '../../../assets/icons/barcode.png'
+import patientMonitor from '../../../assets/icons/patientmonitor.png'
 
 // Site
 import ack from '../../../assets/icons/ack.png'
@@ -32,7 +33,6 @@ import hanyang from '../../../assets/icons/hanyang.png'
 import kosin from '../../../assets/icons/kosin.png'
 import swm from '../../../assets/icons/swm.png'
 import army from '../../../assets/icons/army.png'
-import nihonkoden from '../../../assets/icons/nihonkoden.png'
 import skhu from '../../../assets/icons/skhu.png'
 import youtube from '../../../assets/icons/youtube.png'
 import playstore from '../../../assets/icons/playstore.png'
@@ -67,7 +67,8 @@ const project = {
   ggs,
   murevo,
   covid,
-  barcode
+  barcode,
+  patientMonitor
 }
 
 const site = {
@@ -76,7 +77,6 @@ const site = {
   kosin,
   swm,
   army,
-  nihonkoden,
   skhu,
   youtube,
   playstore
