@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames'
 import styles from './style.module.css'
 
-import { IoIosCube } from 'react-icons/io'
 import P from '../../atoms/P'
 
 interface IProps {
