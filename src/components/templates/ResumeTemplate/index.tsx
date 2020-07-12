@@ -30,6 +30,7 @@ const getArmyDiffDay = () => {
 
 const Resume: React.FC<IProps> = ({ className }) => {
   const github = classNames(styles['social-icon'], styles['social-github'])
+  const gitBlog = classNames(styles['social-icon'], styles['social-github'])
   const blog = classNames(styles['social-icon'], styles['social-blog'])
   const classProps = classNames(className, styles['default'])
 
@@ -51,6 +52,9 @@ const Resume: React.FC<IProps> = ({ className }) => {
           <Layout className={styles['social-links']} direction={Direction.Row} verticalAlign={VerticalAlign.Center}>
             <A to={'https://github.com/mkachi'}>
               <FaGithub className={github} />
+            </A>
+            <A to={'https://mkachi.github.io'}>
+              <FaBloggerB className={gitBlog} />
             </A>
             <A to={'https://mkachi.blog.me'}>
               <FaBloggerB className={blog} />
