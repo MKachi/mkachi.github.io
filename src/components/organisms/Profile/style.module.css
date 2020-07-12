@@ -27,4 +27,16 @@
   border: 1px solid #2385d6;
   border-radius: 10px;
   align-items: center;
+  text-decoration: none !important;
+}
+
+.username {
+  color: #505050;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 0.95em;
+  color: #5e5e5e;
 }

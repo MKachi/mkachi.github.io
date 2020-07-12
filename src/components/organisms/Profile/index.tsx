@@ -56,8 +56,8 @@ const Profile: React.FC<IProps> = ({
     <Layout className={className} direction={Direction.Row}>
       <Image className={styles['profile']} type={ImageType.Default} src={profile} />
       <div className={styles['description']}>
-        <P>{username}</P>
-        <P>{description}</P>
+        <P className={styles['username']}>{username}</P>
+        <P className={styles['description']}>{description}</P>
         {children}
         <div className={styles['icons']}>
           {socialLinks.map((value, index) => {
