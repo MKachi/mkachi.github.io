@@ -68,10 +68,6 @@
   text-decoration: underline;
 }
 
-.default img {
-  width: 100%;
-}
-
 .default code {
   color: #01776c;
   font-size: 0.85em;
