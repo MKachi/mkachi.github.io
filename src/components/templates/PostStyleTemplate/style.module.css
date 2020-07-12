@@ -1,7 +1,7 @@
 .default {
   color: #5e5e5e;
   font-size: 1.0em;
-  padding: 0px 10px;
+  padding-bottom: 20px;
 }
 
 .default h1,
@@ -41,7 +41,8 @@
 }
 
 .default p {
-  padding-bottom: 1.0em;
+  /* padding-bottom: 1.0em; */
+  padding: 0.5em 0px;
 }
 
 .default ol,
@@ -52,6 +53,10 @@
 .default ol ol,
 .default ul ul {
   padding: 0.2em 0em 0em 1em;
+}
+
+.default li {
+  padding: 0.2em 0px;
 }
 
 .default a {
@@ -69,6 +74,7 @@
 
 .default code {
   color: #01776c;
+  font-size: 0.85em;
   font-weight: 500;
   padding: 0.02em 0.3em;
   border-radius: 5px;
