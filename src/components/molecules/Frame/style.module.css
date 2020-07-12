@@ -1,7 +1,7 @@
 .default {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
 }
 
 .content {
@@ -12,4 +12,5 @@
   flex-grow: 1;
   max-width: 770px;
   margin: 0px auto;
+  padding: 0px 10px;
 }

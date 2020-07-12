@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 export enum FrameType {
   Container = 'container',
-  Content = 'content',
+  Content = 'content'
 }
 
 interface IProps {
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const Frame: React.FC<IProps> = ({ className, type = FrameType.Container, children }) => {
-  const classProps = classNames(className, styles.default, styles[type])
+  const classProps = classNames(className, styles['default'], styles[type])
   return <div className={classProps}>{children}</div>
 }
 

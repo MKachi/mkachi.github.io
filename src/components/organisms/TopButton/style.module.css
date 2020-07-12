@@ -1,0 +1,22 @@
+.default {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.5;
+  border-radius: 10px;
+  background: #47a4fc;
+  color: #ffffff;
+  text-align: center;
+}
+
+.default:hover {
+  opacity: 0.75;
+  background: #47a4fc;
+}
+
+.icon {
+  font-size: 2em;
+  margin: auto;
+}

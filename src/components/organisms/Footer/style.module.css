@@ -1,11 +1,22 @@
 .default {
   display: flex;
-  flex-direction: row;
   height: 40px;
   color: #ffffff;
   background-color: #3f3f3f;
   align-items: center;
   justify-content: center;
+}
+
+.text {
+  font-size: 11px;
+  display: flex;
+  margin: 0px auto;
+}
+
+@media all and (min-width: 336px) {
+  .text {
+    font-size: 13px;
+  }
 }
 
 .symbol {

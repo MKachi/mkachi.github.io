@@ -3,22 +3,26 @@ import Frame, { FrameType } from '../components/molecules/Frame'
 import Footer from '../components/organisms/Footer'
 import PostTemplate from '../components/templates/PostTemplate'
 import Helmet from 'react-helmet'
-import { IPost } from '../models/post'
+import useDB from '../hooks/useDB'
+import { IPost, IPostContent } from '../models/post'
+import TopButton from '../components/organisms/TopButton'
 
-interface IProps {
-  post: IPost
-}
+const Post = ({ match }) => {
+  const { posts, contents } = useDB()
+  const key = match.params.postKey
+  const content: IPostContent = contents[key]
+  const info: IPost = posts[content.index]
 
-const Post: React.FC<IProps> = ({ post }) => {
   return (
     <Frame type={FrameType.Content}>
       <Helmet>
-        <title>{post.title}</title>
+        <title>{info.title}</title>
       </Helmet>
       <Frame type={FrameType.Container}>
-        <PostTemplate post={post} />
+        <PostTemplate info={info} content={content} />
       </Frame>
       <Footer />
+      <TopButton />
     </Frame>
   )
 }

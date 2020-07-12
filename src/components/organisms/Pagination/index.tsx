@@ -24,10 +24,12 @@ const clamp = (value: number, min: number, max: number): number => {
 }
 
 const createButton = (buttonIndex: number, pageIndex: number, onChangeIndex = (index: number) => {}): JSX.Element => {
-  const classProps = classNames(styles.button, buttonIndex === pageIndex ? styles.selected : null)
+  const classProps = classNames(styles['button'], buttonIndex === pageIndex ? styles['selected'] : null)
   return (
-    <li className={styles['list-item']}>
-      <Button className={classProps} text={buttonIndex.toString()} onClick={() => onChangeIndex(buttonIndex)} />
+    <li className={styles['list-item']} key={buttonIndex}>
+      <Button className={classProps} onClick={() => onChangeIndex(buttonIndex)}>
+        {buttonIndex.toString()}
+      </Button>
     </li>
   )
 }
@@ -38,12 +40,16 @@ const createArrow = (
   pageCount: number,
   onChangeIndex = (index: number) => {}
 ): JSX.Element => {
+  if (pageCount <= 0) {
+    return null
+  }
+
   if (left) {
     const classProps = classNames(styles['list-item'], pageIndex === 1 ? styles['arrow-hide'] : null)
     return (
       <li className={classProps}>
-        <Button className={styles.button} onClick={() => onChangeIndex(clamp(pageIndex - 1, 1, pageCount))}>
-          <MdKeyboardArrowLeft className={styles.symbol} />
+        <Button className={styles['button']} onClick={() => onChangeIndex(clamp(pageIndex - 1, 1, pageCount))}>
+          <MdKeyboardArrowLeft />
         </Button>
       </li>
     )
@@ -52,8 +58,8 @@ const createArrow = (
   const classProps = classNames(styles['list-item'], pageIndex === pageCount ? styles['arrow-hide'] : null)
   return (
     <li className={classProps}>
-      <Button className={styles.button} onClick={() => onChangeIndex(clamp(pageIndex + 1, 1, pageCount))}>
-        <MdKeyboardArrowRight className={styles.symbol} />
+      <Button className={styles['button']} onClick={() => onChangeIndex(clamp(pageIndex + 1, 1, pageCount))}>
+        <MdKeyboardArrowRight />
       </Button>
     </li>
   )
@@ -108,10 +114,10 @@ const Pagination: React.FC<IProps> = ({ className, pageIndex, pageCount, onChang
     buttons = sideHide(pageIndex, pageCount, onChangeIndex)
   }
 
-  const classProps = classNames(className, styles.default)
+  const classProps = classNames(className, styles['default'])
   return (
     <nav className={classProps}>
-      <ul className={styles.buttons}>
+      <ul className={styles['buttons']}>
         {createArrow(true, pageIndex, pageCount, onChangeIndex)}
         {buttons}
         {createArrow(false, pageIndex, pageCount, onChangeIndex)}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import styles from './style.module.css'
 
@@ -48,14 +48,18 @@ interface IProps {
 const Layout: React.FC<IProps> = ({ className, children, direction = Direction.Row, verticalAlign, horizontalAlign, wrap, overflow }) => {
   const classProps = classNames(
     className,
-    styles.default,
+    styles['default'],
     styles[direction],
     styles[verticalAlign ? verticalAlign : ''],
     styles[horizontalAlign ? horizontalAlign : ''],
     styles[wrap ? wrap : ''],
     styles[overflow ? overflow : '']
   )
-  return <div className={classProps}>{children}</div>
+  return (
+    <Fragment>
+      <div className={classProps}>{children}</div>
+    </Fragment>
+  )
 }
 
 export default Layout

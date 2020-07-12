@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 import { Link } from 'react-router-dom'
 
-export enum Type {
+export enum LinkType {
   Route,
   Url
 }
@@ -12,13 +12,13 @@ export enum Type {
 interface IProps {
   className?: string
   to: string
-  type?: Type
+  type?: LinkType
   children?: React.ReactNode
 }
 
-const A: React.FC<IProps> = ({ className, to, children, type = Type.Url }) => {
-  const classProps = classNames(className, styles.default)
-  if (type == Type.Route) {
+const A: React.FC<IProps> = ({ className, to, children, type = LinkType.Url }) => {
+  const classProps = classNames(className, styles['default'])
+  if (type == LinkType.Route) {
     return (
       <Link className={classProps} to={to}>
         {children}

@@ -1,0 +1,140 @@
+.default {
+  color: #5e5e5e;
+  font-size: 1.0em;
+  padding: 0px 10px;
+}
+
+.default h1,
+.default h2,
+.default h3,
+.default h4,
+.default h5,
+.default h6 {
+  color: #3d3d3d;
+  font-weight: 600;
+  padding-bottom: 0.3em;
+}
+
+.default h1 {
+  font-size: 2em;
+}
+
+.default h2 {
+  font-size: 1.8em;
+}
+
+.default h3 {
+  font-size: 1.6em;
+}
+
+.default h4 {
+  font-size: 1.4em;
+}
+
+.default h5 {
+  font-size: 1.2em;
+}
+
+.default h6 {
+  color: #979696;
+  font-size: 1.2em;
+}
+
+.default p {
+  padding-bottom: 1.0em;
+}
+
+.default ol,
+.default ul {
+  padding: 0.2em 0em 0em 2em;
+}
+
+.default ol ol,
+.default ul ul {
+  padding: 0.2em 0em 0em 1em;
+}
+
+.default a {
+  color: #2385d6;
+  text-decoration: none;
+}
+
+.default a:hover {
+  text-decoration: underline;
+}
+
+.default img {
+  width: 100%;
+}
+
+.default code {
+  color: #01776c;
+  font-weight: 500;
+  padding: 0.02em 0.3em;
+  border-radius: 5px;
+  background-color: #1b1f230d;
+}
+
+.default pre {
+  color: #3d3d3d;
+  font-weight: 500;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: #1b1f230d;
+  margin-bottom: 13px;
+}
+
+.default pre code {
+  color: #3d3d3d;
+  font-weight: 400;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.default table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 13px;
+}
+
+.default th {
+  color: #2b2b2b;
+  font-weight: 600;
+}
+
+.default tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.default td,
+.default th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.default blockquote {
+  padding: 0 1em;
+  border-left: 0.25em solid #b1e0ff;
+}
+
+.default hr {
+  background-color: #cccccc;
+  height: 1.4px;
+  margin: 13px 0px;
+}
+
+.default c-youtube {
+  display: block;
+  position: relative;
+  width: 98%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin: 13px auto;
+}
+
+.default iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

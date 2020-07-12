@@ -1,0 +1,11 @@
+.default {
+  padding: 0.2em 0em 0em 2em;
+}
+
+.default .default {
+  padding: 0.2em 0em 0em 1em;
+}
+
+.default>* {
+  padding: 5px 0px;
+}

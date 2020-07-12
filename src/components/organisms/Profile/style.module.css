@@ -6,10 +6,12 @@
 
 .description {
   margin: auto 0px auto 5px;
+  word-break: break-all;
 }
 
 .icons {
   font-size: 25px;
+  padding-bottom: 5px;
 }
 
 .icon {
@@ -19,14 +21,22 @@
   transition: all 0.3s ease;
 }
 
-.rss:hover {
-  color: #ff9900;
+.resume {
+  font-size: 0.8em;
+  padding: 1px 8px;
+  border: 1px solid #2385d6;
+  border-radius: 10px;
+  align-items: center;
+  text-decoration: none !important;
 }
 
-.facebook:hover {
-  color: #4359ac;
+.username {
+  color: #505050;
+  font-size: 1.3em;
+  font-weight: 600;
 }
 
-.github:hover {
-  color: #000000;
+.description {
+  font-size: 0.95em;
+  color: #5e5e5e;
 }
