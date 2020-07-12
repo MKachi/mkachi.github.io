@@ -1,8 +1,11 @@
 'use strict'
 
+const config = require('./config')
+
 const markdown = require('markdown-it')
 const fs = require('fs')
 const util = require('util')
+const path = require('path')
 
 const readDir = util.promisify(fs.readdir)
 const readFile = util.promisify(fs.readFile)
@@ -152,7 +155,8 @@ const createDB = async () => {
       post,
       tags,
     }
-    await writeFile('./database.json', JSON.stringify(json), 'utf-8')
+    const outPath = path.resolve(config.src, './database.json')
+    await writeFile(outPath, JSON.stringify(json), 'utf-8')
   } catch (ex) {
     console.log(ex)
   }
