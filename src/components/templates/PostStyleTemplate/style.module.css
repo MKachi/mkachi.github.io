@@ -62,6 +62,7 @@
 .default a {
   color: #2385d6;
   text-decoration: none;
+  word-wrap: break-word;
 }
 
 .default a:hover {
