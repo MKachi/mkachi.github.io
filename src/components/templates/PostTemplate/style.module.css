@@ -38,6 +38,10 @@
   padding: 3px;
 }
 
+.back-link:hover {
+  text-decoration: none !important;
+}
+
 .icon {
   margin-right: 3px;
 }

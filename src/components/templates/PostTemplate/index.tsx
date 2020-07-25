@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom'
 import PostStyleTemplate from '../PostStyleTemplate'
 import Button from '../../atoms/Button'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
+import A, { LinkType } from '../../atoms/A'
 
 interface IProps {
   className?: string
@@ -26,10 +27,12 @@ const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
     <article className={classProps}>
       <Layout className={styles['post-header']} direction={Direction.Column}>
         <Layout direction={Direction.Row}>
-          <Button className={styles['back-button']} onClick={() => history.goBack()}>
-            <AiOutlineUnorderedList className={styles['icon']} />
-            <span>{'목록'}</span>
-          </Button>
+          <A className={styles['back-link']} to={'/'} type={LinkType.Route}>
+            <Button className={styles['back-button']}>
+              <AiOutlineUnorderedList className={styles['icon']} />
+              <span>{'목록'}</span>
+            </Button>
+          </A>
         </Layout>
         <h1 className={styles['post-title']}>{info.title}</h1>
         <Layout className={styles['post-time']} direction={Direction.Row}>
@@ -37,9 +40,7 @@ const PostTemplate: React.FC<IProps> = ({ className, info, content }) => {
           <span>{info.time}</span>
         </Layout>
         <Layout className={styles['post-tags']} direction={Direction.Row} wrap={Wrap.Wrap}>
-          {info.tags.map(tag => (
-            <Tag className={styles['tag']} key={tag} value={tag}>{`#${tag}`}</Tag>
-          ))}
+          {info.tags.map(tag => <Tag className={styles['tag']} key={tag} value={tag}>{`#${tag}`}</Tag>)}
         </Layout>
       </Layout>
       <PostStyleTemplate>
