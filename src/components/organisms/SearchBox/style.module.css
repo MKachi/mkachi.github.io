@@ -1,0 +1,22 @@
+.default {
+  margin-bottom: 4px;
+}
+
+.search-box {
+  font-size: 1.1em;
+  padding: 0px 8px;
+  flex-grow: 1;
+}
+
+.button {
+  border-bottom: 1px solid #9c9c9c;
+}
+
+.button-focus {
+  border-bottom: 1px solid #008cff;
+}
+
+.close-icon {
+  font-size: 1.3em;
+  color: #8b8b8b;
+}

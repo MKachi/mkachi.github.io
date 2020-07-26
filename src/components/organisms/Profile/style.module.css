@@ -1,0 +1,42 @@
+.profile {
+  width: 160px;
+  height: 160px;
+  border-radius: 100%;
+}
+
+.description {
+  margin: auto 0px auto 5px;
+  word-break: break-all;
+}
+
+.icons {
+  font-size: 25px;
+  padding-bottom: 5px;
+}
+
+.icon {
+  color: #8a8a8a;
+  margin: 5px 10px 0px 0px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resume {
+  font-size: 0.8em;
+  padding: 1px 8px;
+  border: 1px solid #2385d6;
+  border-radius: 10px;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.username {
+  color: #505050;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 0.95em;
+  color: #5e5e5e;
+}

@@ -1,0 +1,22 @@
+.post {
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  border-bottom: 1px solid #eeeeee;
+  padding: 10px 16px 16px 16px;
+  transition: all 0.3s ease;
+}
+
+.post:hover {
+  background-color: #eeeeee56;
+  border-bottom: 1px solid #c7c7c7;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eeeeee;
+  background-color: #f9fafc;
+  border-radius: 20px;
+  padding: 20px;
+}

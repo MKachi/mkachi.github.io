@@ -1,0 +1,18 @@
+.default {
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: 3px 3px 0px 0px;
+  background-color: #ffffff;
+}
+
+.icon {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  margin: auto 3px 0px 0px;
+}
+
+.text {
+  font-size: 0.7em;
+}

@@ -1,0 +1,72 @@
+{
+  "name": "mkachi.github.io",
+  "version": "1.0.0",
+  "description": "https://mkachi.github.io/",
+  "author": "MKachi <mkachi@naver.com>",
+  "private": true,
+  "scripts": {
+    "build": "node ./scripts/createDB.js && node ./scripts/build.js",
+    "develop": "node ./scripts/createDB.js && webpack-dev-server --config ./scripts/webpack/webpack.dev.js",
+    "develop:proxy": "node ./scripts/proxy-server/server.js",
+    "proxy": "npm-run-all --parallel develop develop:proxy",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix",
+    "create-db": "node ./scripts/createDB.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MKachi/mkachi.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MKachi/mkachi.github.io/issues"
+  },
+  "homepage": "https://github.com/MKachi/mkachi.github.io#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "dayjs": "^1.8.28",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.10.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^5.0.16",
+    "@types/react-router-dom": "^5.1.5",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-loader": "^8.1.0",
+    "chalk": "^3.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "eslint": "^6.8.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^3.0.4",
+    "eslint-plugin-react": "^7.20.0",
+    "file-loader": "^5.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "markdown-it": "^10.0.0",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "ora": "^4.0.4",
+    "prettier": "^1.19.1",
+    "style-loader": "^1.2.1",
+    "typescript": "^3.9.5",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

@@ -1,0 +1,47 @@
+.default {
+  padding: 20px 0px 40px 0px;
+}
+
+.post-header {
+  padding-bottom: 20px;
+}
+
+.post-title {
+  color: #3d3d3d;
+  font-weight: bold;
+  font-size: 2em;
+  word-break: break-all;
+}
+
+.post-time {
+  color: #9c9c9c;
+  font-size: 0.8em;
+}
+
+.post-time span {
+  margin-right: 6px;
+}
+
+.post-tags {
+  margin-top: 5px;
+}
+
+.tag {
+  margin: 0px 2px 2px 0px;
+}
+
+.back-button {
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9em;
+  margin-right: 3px;
+  padding: 3px;
+}
+
+.back-link:hover {
+  text-decoration: none !important;
+}
+
+.icon {
+  margin-right: 3px;
+}

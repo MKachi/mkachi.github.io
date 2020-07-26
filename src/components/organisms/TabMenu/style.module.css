@@ -1,0 +1,38 @@
+.default {
+  border-bottom: 1px solid #9c9c9c;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.default::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  font-size: 1.0em;
+  font-weight: 600;
+  color: #dadada;
+}
+
+.item:hover,
+.selected {
+  color: #47a4fc;
+}
+
+.content {
+  padding: 0px 5px;
+}
+
+.search-button {
+  margin: 0px 0px 0px auto;
+}
+
+.search-icon {
+  display: flex;
+  margin: auto;
+}

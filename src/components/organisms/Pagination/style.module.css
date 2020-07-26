@@ -1,0 +1,34 @@
+.default {
+  margin: 15px 0px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.button {
+  display: block;
+  padding: 0px;
+  border-radius: 100%;
+  font-size: 0.85em;
+  text-align: center;
+  min-width: 32px;
+  height: 32px;
+}
+
+.arrow-hide {
+  visibility: hidden;
+}
+
+.selected {
+  background-color: #ecececa8;
+  font-weight: bold;
+}
